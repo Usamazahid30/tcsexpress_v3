@@ -6,30 +6,37 @@ const services = [
   {
     title: "TCS Air",
     description: "Same-day air movement across 20 domestic destinations.",
+    image: "/air.jpg",
   },
   {
     title: "Logistics",
     description: "Warehousing, fleet and supply-chain solutions at scale.",
+    image: "/logistics.jpg",
   },
   {
     title: "Sentiments",
     description: "Flowers, cakes and gifts delivered on the day that matters.",
+    image: "/sentiments.jpg",
   },
   {
     title: "E-Com Solutions",
     description: "Sell online with COD, daily payments and fast fulfilment.",
+    image: "/ecom.jpg",
   },
   {
     title: "International Express",
     description: "Documents and parcels to 200+ countries, tracked end to end.",
+    image: "/internationals.jpg",
   },
   {
     title: "TCS Studio",
     description: "Print, packaging and brand collateral produced in-house.",
+    image: "/studio.jpg",
   },
   {
     title: "Red Box",
     description: "Fixed-rate flat boxes for effortless nationwide shipping.",
+    image: "/red.jpg",
   },
 ];
 
@@ -243,7 +250,7 @@ export function ServiceCarousel() {
           >
             {/* Full image */}
             <img
-              src="/ecom.jpg"
+              src={service.image}
               alt={`${service.title} service`}
               loading="lazy"
               decoding="async"
