@@ -40,7 +40,7 @@ export function TrackBar() {
   return (
     <section
       aria-label="Track your shipment"
-      className="border-b border-border bg-gray-200 pt-24 pb-6 sm:pt-28"
+      className="border-b border-border bg-primary-foreground pt-24 pb-6 sm:pt-28"
     >
       <div className="container-page flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="min-w-0 flex-1">
