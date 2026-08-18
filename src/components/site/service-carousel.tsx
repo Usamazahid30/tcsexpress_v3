@@ -1,313 +1,239 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "motion/react";
+import { useState, useRef, useCallback } from "react";
+import { ArrowRight } from "lucide-react";
 
-const services = [
+interface ServiceItem {
+  id: string;
+  title: string;
+  image: string;
+  href: string;
+}
+
+const services: ServiceItem[] = [
   {
-    title: "TCS Air",
-    description: "Same-day air movement across 20 domestic destinations.",
+    id: "air",
+    title: "Air",
     image: "/air.jpg",
+    href: "#services",
   },
   {
+    id: "logistics",
     title: "Logistics",
-    description: "Warehousing, fleet and supply-chain solutions at scale.",
     image: "/logistics.jpg",
+    href: "#services",
   },
   {
+    id: "sentiments",
     title: "Sentiments",
-    description: "Flowers, cakes and gifts delivered on the day that matters.",
     image: "/sentiments.jpg",
+    href: "#services",
   },
   {
-    title: "E-Com Solutions",
-    description: "Sell online with COD, daily payments and fast fulfilment.",
+    id: "ecom",
+    title: "E-Com",
     image: "/ecom.jpg",
+    href: "#services",
   },
   {
-    title: "International Express",
-    description: "Documents and parcels to 200+ countries, tracked end to end.",
+    id: "international",
+    title: "International",
     image: "/internationals.jpg",
+    href: "#services",
   },
   {
-    title: "TCS Studio",
-    description: "Print, packaging and brand collateral produced in-house.",
+    id: "studio",
+    title: "Studio",
     image: "/studio.jpg",
+    href: "#services",
   },
   {
+    id: "redbox",
     title: "Red Box",
-    description: "Fixed-rate flat boxes for effortless nationwide shipping.",
     image: "/red.jpg",
+    href: "#services",
   },
 ];
 
 export function ServiceCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(3);
+  const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Drag state kept in a ref so pointer handlers stay stable
-  const drag = useRef({
-    active: false,
-    startX: 0,
-    startScroll: 0,
-    moved: false,
-    pointerId: -1,
-  });
+  const isPointerDown = useRef(false);
+  const dragStartX = useRef(0);
+  const hasMoved = useRef(false);
 
-  const syncEdges = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    const { scrollLeft, clientWidth, scrollWidth } = el;
-    // Small tolerance avoids flicker at the edges
-    setAtStart(scrollLeft <= 2);
-    setAtEnd(scrollLeft + clientWidth >= scrollWidth - 2);
+  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    isPointerDown.current = true;
+    dragStartX.current = e.clientX;
+    hasMoved.current = false;
   }, []);
 
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    syncEdges();
-
-    el.addEventListener("scroll", syncEdges, { passive: true });
-    window.addEventListener("resize", syncEdges);
-
-    // Also re-check after images / fonts load
-    const ro = new ResizeObserver(syncEdges);
-    ro.observe(el);
-
-    return () => {
-      el.removeEventListener("scroll", syncEdges);
-      window.removeEventListener("resize", syncEdges);
-      ro.disconnect();
-    };
-  }, [syncEdges]);
-
-  /** Distance to scroll for one “page” (one card + gap) */
-  const getStep = () => {
-    const el = trackRef.current;
-    if (!el) return 300;
-
-    const card = el.querySelector<HTMLElement>("[data-card]");
-    if (!card) return Math.round(el.clientWidth * 0.75);
-
-    // 20px matches the gap-5 class
-    return card.offsetWidth + 20;
-  };
-
-  const scrollByCards = (direction: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    el.scrollBy({
-      left: direction * getStep(),
-      behavior: "smooth",
-    });
-  };
-
-  // ── Pointer / drag handlers ──────────────────────────────────────────────
-
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Only primary button / touch
-    if (e.button !== 0 && e.pointerType === "mouse") return;
-
-    const el = trackRef.current;
-    if (!el) return;
-
-    drag.current = {
-      active: true,
-      startX: e.clientX,
-      startScroll: el.scrollLeft,
-      moved: false,
-      pointerId: e.pointerId,
-    };
-
-    el.setPointerCapture(e.pointerId);
-    setIsDragging(true);
-  };
-
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = trackRef.current;
-    if (!el || !drag.current.active) return;
-
-    const delta = e.clientX - drag.current.startX;
-
-    // Threshold before we consider it a real drag
-    if (Math.abs(delta) > 6) {
-      drag.current.moved = true;
-    }
-
-    // Direct scroll for responsive feel (no inertia lag while dragging)
-    el.scrollLeft = drag.current.startScroll - delta;
-  };
-
-  const endDrag = (e?: React.PointerEvent<HTMLDivElement>) => {
-    if (!drag.current.active) return;
-
-    const el = trackRef.current;
-    if (el && e) {
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isPointerDown.current) return;
+    const delta = e.clientX - dragStartX.current;
+    if (!hasMoved.current && Math.abs(delta) > 6) {
+      hasMoved.current = true;
+      setIsDragging(true);
       try {
-        el.releasePointerCapture(e.pointerId);
+        (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
       } catch {
-        // already released
+        // ignore
       }
     }
+    if (hasMoved.current) {
+      setDragOffset(delta);
+    }
+  }, []);
 
-    drag.current.active = false;
-    setIsDragging(false);
-  };
+  const handlePointerEnd = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (!isPointerDown.current) return;
+      isPointerDown.current = false;
 
-  const onClickCapture = (e: React.MouseEvent) => {
-    // Prevent accidental clicks on links/buttons after a drag
-    if (drag.current.moved) {
-      e.preventDefault();
-      e.stopPropagation();
-      drag.current.moved = false;
+      if (hasMoved.current) {
+        const threshold = 50;
+        if (dragOffset < -threshold) {
+          // Swiped left -> advance forward
+          setActiveIndex((prev) => Math.min(services.length - 1, prev + 1));
+        } else if (dragOffset > threshold) {
+          // Swiped right -> go backward
+          setActiveIndex((prev) => Math.max(0, prev - 1));
+        }
+        try {
+          if ((e.currentTarget as HTMLElement).hasPointerCapture?.(e.pointerId)) {
+            (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+          }
+        } catch {
+          // ignore
+        }
+        setIsDragging(false);
+        setDragOffset(0);
+        setTimeout(() => {
+          hasMoved.current = false;
+        }, 50);
+      } else {
+        setIsDragging(false);
+        setDragOffset(0);
+      }
+    },
+    [dragOffset],
+  );
+
+  const handleCardClick = (index: number) => {
+    if (hasMoved.current) return;
+    if (index !== activeIndex) {
+      setActiveIndex(index);
     }
   };
 
   return (
     <section
       id="services"
-      className="relative pb-16 lg:pb-20"
+      className="service-carousel-section relative overflow-hidden pb-16 lg:pb-24 select-none"
       style={{ background: "var(--gradient-surface)" }}
     >
-      {/* Navigation buttons */}
-      {/* <div className="container-page flex justify-end gap-2 pb-5">
-        <button
-          type="button"
-          onClick={() => scrollByCards(-1)}
-          disabled={atStart}
-          aria-label="Previous services"
-          className="press grid h-11 w-11 place-items-center rounded-full border border-border bg-card text-foreground transition-all duration-200 hover:text-primary disabled:pointer-events-none disabled:opacity-40"
+      {/* 3D Perspective Draggable Carousel */}
+      <div className="service-carousel-wrapper">
+        <div
+          className={`service-carousel-track ${isDragging ? "service-carousel-track--dragging" : ""}`}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
         >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
+          {services.map((service, i) => {
+            const offset = i - activeIndex;
+            const isActive = offset === 0;
+            const absOffset = Math.abs(offset);
 
-        <button
-          type="button"
-          onClick={() => scrollByCards(1)}
-          disabled={atEnd}
-          aria-label="Next services"
-          className="press grid h-11 w-11 place-items-center rounded-full border border-primary/30 bg-primary text-primary-foreground transition-all duration-200 hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-40"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </div> */}
+            // Spacing calculations matching your design
+            const baseGap = 60;
+            const cardW = 240;
+            const activeHalf = cardW / 2;
+            const inactiveHalf = (cardW * 0.8) / 2;
 
-      {/* Scroll track */}
-      <div
-        ref={trackRef}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onPointerLeave={endDrag}
-        onClickCapture={onClickCapture}
-        className={[
-          "flex gap-5 overflow-x-auto scroll-smooth",
-          "snap-x snap-mandatory",
-          // Added pt-6 so the cards don't clip at the top when they scale up
-          "px-5 pt-6 pb-6 lg:px-8",
-          "select-none",
-          "scrollbar-none [&::-webkit-scrollbar]:hidden",
-          isDragging ? "cursor-grabbing" : "cursor-grab",
-        ].join(" ")}
-        style={{ scrollPaddingLeft: "1.25rem" }}
-      >
-        {/* Left spacer so first card aligns with container on large screens */}
-        <div className="hidden shrink-0 lg:block lg:w-[max(0px,calc((100vw-80rem)/2))]" />
+            let translateX = 0;
+            if (absOffset > 0) {
+              translateX = activeHalf + baseGap + inactiveHalf;
+              for (let step = 2; step <= absOffset; step++) {
+                const stepGap = baseGap + (step - 1) * 12;
+                translateX += inactiveHalf * 2 + stepGap;
+              }
+              if (offset < 0) translateX = -translateX;
+            }
 
-        {services.map((service, i) => (
-          <motion.article
-            key={service.title}
-            data-card
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{
-              duration: 0.55,
-              delay: Math.min(i, 5) * 0.07,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{
-              y: -12,
-              scale: 1.06, // Increased scale for the entire card
-              zIndex: 10, // Keeps the hovered card above adjacent cards
-              transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-            }}
-            className="
-              group relative aspect-3/4 w-65.5 shrink-0 snap-start
-              overflow-hidden rounded-[22px]
-              border border-border
-              shadow-(--shadow-soft)
-              transition-shadow duration-300
-              hover:shadow-(--shadow-elevated)
-              sm:w-[288px]
-            "
-          >
-            {/* Full image */}
-            <img
-              src={service.image}
-              alt={`${service.title} service`}
-              loading="lazy"
-              decoding="async"
-              draggable={false}
-              className="
-                absolute inset-0
-                h-full w-full
-                object-cover
-                object-[center_top]
-              "
-            />
+            // Add real-time drag displacement
+            translateX += dragOffset;
 
-            {/* Dark gradient for text readability */}
-            <div
-              className="
-                absolute inset-0
-                bg-linear-to-t
-                from-charcoal/95
-                via-charcoal/35
-                to-transparent
-              "
-            />
+            const rotateY = isActive ? 0 : offset < 0 ? 16 : -16;
+            const scale = isActive ? 1 : 0.8;
+            const zIndex = 50 - absOffset * 10;
 
-            {/* Content */}
-            <div
-              className="
-                absolute inset-x-0 bottom-0
-                flex items-end justify-between
-                gap-3 p-5
-              "
-            >
-              <div className="min-w-0">
-                <h3 className="text-lg font-semibold text-primary-foreground">{service.title}</h3>
-
-                <p className="mt-1 text-sm leading-normal text-primary-foreground/75">
-                  {service.description}
-                </p>
-              </div>
-
-              <a
-                href="#services"
-                aria-label={`Explore ${service.title}`}
-                className="
-                  glass grid h-10 w-10 shrink-0 place-items-center
-                  rounded-full border border-white/25
-                  text-primary-foreground
-                  transition-all duration-300
-                  group-hover:rotate-45
-                  group-hover:bg-primary
-                  group-hover:border-primary
-                "
+            return (
+              <div
+                key={service.id}
+                className={`service-card ${isActive ? "service-card--active" : ""} ${
+                  isDragging ? "service-card--dragging" : ""
+                }`}
+                style={{
+                  transform: `translateX(${translateX}px) rotateY(${rotateY}deg) scale(${scale})`,
+                  zIndex,
+                  transition: isDragging ? "none" : "transform 0.5s ease-in-out",
+                }}
+                onClick={() => handleCardClick(i)}
               >
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </motion.article>
-        ))}
+                {/* Full-bleed image */}
+                <img
+                  src={service.image}
+                  alt={`${service.title} service`}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                  className="service-card__image"
+                />
+
+                {/* Top gradient for title contrast */}
+                <div className="service-card__top-gradient" />
+
+                {/* Bottom gradient */}
+                <div className="service-card__bottom-gradient" />
+
+                {/* Top header: White TCS Logo, Divider & Service Title */}
+                <div className="service-card__top">
+                  <div className="service-card__brand-header">
+                    <img
+                      src="/tcs.svg"
+                      alt="TCS"
+                      className="service-card__tcs-logo"
+                      draggable={false}
+                    />
+                    <span className="service-card__divider" aria-hidden="true" />
+                    <span className="service-card__title">{service.title}</span>
+                  </div>
+                </div>
+
+                {/* Bottom content: Circular Arrow button in bottom-right */}
+                <div className="service-card__bottom">
+                  <a
+                    href={service.href}
+                    aria-label={`Explore ${service.title}`}
+                    className={`service-card__arrow ${
+                      isActive ? "service-card__arrow--active" : "service-card__arrow--inactive"
+                    }`}
+                    onClick={(e) => {
+                      if (hasMoved.current || !isActive) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

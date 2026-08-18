@@ -64,6 +64,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-footer-background: var(--footer-background);
 }
 
 :root {
@@ -75,7 +76,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.005 285);
   --primary: oklch(0.56 0.229 27.6);
-  --primary-foreground: oklch(1 0 0);
+  --primary-foreground: oklch(95.48% 0 0);
   --primary-hover: oklch(0.51 0.222 27.6);
   --charcoal: oklch(0.21 0 0);
   --secondary: oklch(0.973 0.002 264);
@@ -110,6 +111,7 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --footer-background: oklch(95.48% 0 0);
 }
 
 .dark {
@@ -277,5 +279,242 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Service Carousel (3D Perspective & Draggable) ──────────────────── */
+
+.service-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding-block: 2rem;
+}
+
+/* 3D perspective container — enables rotateY on children & drag interaction */
+.service-carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  position: relative;
+  min-height: 340px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.service-carousel-track--dragging {
+  cursor: grabbing;
+}
+
+@media (min-width: 640px) {
+  .service-carousel-track {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-carousel-track {
+    min-height: 440px;
+  }
+}
+
+/* Each card */
+.service-card {
+  position: absolute;
+  width: 240px;
+  aspect-ratio: 3 / 4;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--card);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  box-shadow: none;
+}
+
+.service-card--dragging {
+  cursor: grabbing;
+}
+
+@media (min-width: 640px) {
+  .service-card {
+    width: 270px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-card {
+    width: 300px;
+  }
+}
+
+/* Active center card */
+.service-card--active {
+  box-shadow: none;
+}
+
+/* Full-bleed image */
+.service-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Top gradient for logo/text readability */
+.service-card__top-gradient {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 55%;
+  background: linear-gradient(
+    to bottom,
+    oklch(0.15 0 0 / 0.85) 0%,
+    oklch(0.15 0 0 / 0.45) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Bottom gradient */
+.service-card__bottom-gradient {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(to top, oklch(0.15 0 0 / 0.6) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Top Branding & Title Header (Centered) */
+.service-card__top {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  padding: 1.25rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.service-card__brand-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 100%;
+}
+
+.service-card__tcs-logo {
+  height: 18px;
+  width: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  opacity: 0.98;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.service-card__divider {
+  display: inline-block;
+  width: 1.5px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 9999px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.service-card__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 640px) {
+  .service-card__tcs-logo {
+    height: 20px;
+  }
+  .service-card__divider {
+    height: 18px;
+  }
+  .service-card__title {
+    font-size: 1.32rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-card__tcs-logo {
+    height: 22px;
+  }
+  .service-card__divider {
+    height: 20px;
+  }
+  .service-card__title {
+    font-size: 1.45rem;
+  }
+}
+
+/* Bottom content container */
+.service-card__bottom {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1.15rem;
+  z-index: 3;
+}
+
+/* Circular Arrow Buttons */
+.service-card__arrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-card__arrow--active {
+  background: var(--primary);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.service-card__arrow--inactive {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
+  border: 1px solid rgba(227, 6, 19, 0.15);
+  transform: scale(0.9);
+}
+
+.service-card__arrow:hover {
+  transform: scale(1.15) rotate(-45deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .service-card__arrow {
+    width: 40px;
+    height: 40px;
   }
 }
