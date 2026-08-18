@@ -147,7 +147,6 @@ export function ServiceCarousel() {
             const isActive = offset === 0;
             const absOffset = Math.abs(offset);
 
-            // Spacing calculations matching your design
             const baseGap = 60;
             const cardW = 240;
             const activeHalf = cardW / 2;
