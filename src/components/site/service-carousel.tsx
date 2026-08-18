@@ -46,7 +46,7 @@ export function ServiceCarousel() {
   const [atEnd, setAtEnd] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Drag state kept in a ref so pointer handlers stay stable
+  // Drag state kept in a ref
   const drag = useRef({
     active: false,
     startX: 0,
