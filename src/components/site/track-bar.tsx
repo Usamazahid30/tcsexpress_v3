@@ -10,70 +10,72 @@ import {
   Truck,
   User,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { RippleButton } from "./ripple-button";
 
-const placeholders = [
-  "Enter your tracking number",
-  "e.g. 123456789",
-  "Track a domestic shipment",
-  "Track an international parcel",
-];
-
-const actions = [
-  { icon: PackageSearch, label: "TCS Kardo" },
-  { icon: Truck, label: "Schedule a Pickup" },
-  { icon: Calculator, label: "Rate Calculator" },
-  { icon: MapPin, label: "TCS Locator" },
-  { icon: User, label: "Open an Account" },
-];
-
 export function TrackBar() {
+  const { t } = useTranslation(["site", "common"]);
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const placeholders = [
+    t("site:track_bar.placeholder_1"),
+    t("site:track_bar.placeholder_2"),
+    t("site:track_bar.placeholder_3"),
+    t("site:track_bar.placeholder_4"),
+  ];
+
+  const actions = [
+    { icon: PackageSearch, label: t("site:track_bar.action_kardo") },
+    { icon: Truck, label: t("site:track_bar.action_pickup") },
+    { icon: Calculator, label: t("site:track_bar.action_rate") },
+    { icon: MapPin, label: t("site:track_bar.action_locator") },
+    { icon: User, label: t("site:track_bar.action_account") },
+  ];
+
   useEffect(() => {
     const id = window.setInterval(() => setIndex((i) => (i + 1) % placeholders.length), 3200);
     return () => window.clearInterval(id);
-  }, []);
+  }, [placeholders.length]);
 
   return (
     <section
-      aria-label="Track your shipment"
+      aria-label={t("site:track_bar.title")}
       className="border-b border-border bg-primary-foreground pt-24 pb-6 sm:pt-28"
     >
       <div className="container-page flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] font-semibold text-foreground">Track Your Shipment</p>
+          <p className="text-[15px] font-semibold text-foreground">{t("site:track_bar.title")}</p>
           <form
             onSubmit={(event) => {
               event.preventDefault();
               setLoading(true);
               window.setTimeout(() => setLoading(false), 1600);
             }}
-            className="mt-3 flex w-full max-w-xl flex-col gap-2 rounded-[22px] border border-border bg-card p-2 shadow-shadow-(--shadow-soft) transition-all focus-within:border-primary/50  sm:flex-row sm:items-center"
+            className="mt-3 flex w-full max-w-xl flex-col gap-2 rounded-[22px] border border-border bg-card p-2 shadow-(--shadow-soft) transition-all focus-within:border-primary/50 sm:flex-row sm:items-center"
           >
             <div className="flex min-w-0 flex-1 items-center gap-3 px-3">
               <Package className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <label htmlFor="tracking" className="sr-only">
-                Tracking number
+                {t("site:track_bar.placeholder_1")}
               </label>
               <input
                 id="tracking"
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
-                placeholder={placeholders[index]}
+                placeholder={placeholders[index % placeholders.length]}
                 className="h-11 w-full min-w-0 bg-transparent text-base text-foreground placeholder:text-muted-foreground/80 focus:outline-none"
               />
             </div>
             <RippleButton type="submit" size="md" className="shrink-0 sm:min-w-40">
               {loading ? (
                 <>
-                  <Loader2 className="h-4 w-4 animate-spin" /> Tracking
+                  <Loader2 className="h-4 w-4 animate-spin" /> {t("common:actions.tracking")}
                 </>
               ) : (
                 <>
-                  Track Shipment <ArrowRight className="h-4 w-4" />
+                  {t("common:actions.track")} <ArrowRight className="h-4 w-4 rtl-flip" />
                 </>
               )}
             </RippleButton>

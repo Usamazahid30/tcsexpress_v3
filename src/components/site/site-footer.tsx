@@ -1,23 +1,9 @@
 import { Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 import { Reveal } from "./reveal";
 import { RippleButton } from "./ripple-button";
-
-const columns = [
-  {
-    title: "Company",
-    links: ["About Us", "Mission & Core Values", "Leadership", "Careers"],
-  },
-  {
-    title: "Products & Services",
-    links: ["Domestic", "International", "Express", "Logistics", "E-Com Solutions"],
-  },
-  {
-    title: "Resources",
-    links: ["Track Shipment", "Rate Calculator", "Locate a Branch", "Help Centre"],
-  },
-];
 
 const socials = [
   { icon: Facebook, label: "Facebook" },
@@ -28,6 +14,39 @@ const socials = [
 ];
 
 export function SiteFooter() {
+  const { t } = useTranslation(["site", "common"]);
+
+  const columns = [
+    {
+      title: t("site:footer.company"),
+      links: [
+        { label: t("site:footer.about_us"), href: "#about" },
+        { label: t("site:footer.mission"), href: "#about" },
+        { label: t("site:footer.leadership"), href: "#about" },
+        { label: t("site:footer.careers"), href: "#about" },
+      ],
+    },
+    {
+      title: t("site:footer.products_services"),
+      links: [
+        { label: t("site:footer.domestic"), href: "#services" },
+        { label: t("site:footer.international_svc"), href: "#services" },
+        { label: t("site:footer.express"), href: "#services" },
+        { label: t("site:footer.logistics_svc"), href: "#services" },
+        { label: t("site:footer.ecom_svc"), href: "#services" },
+      ],
+    },
+    {
+      title: t("site:footer.resources"),
+      links: [
+        { label: t("site:footer.track_shipment"), href: "#top" },
+        { label: t("site:footer.rate_calc"), href: "#top" },
+        { label: t("site:footer.locate_branch"), href: "#top" },
+        { label: t("site:footer.help_centre"), href: "#contact" },
+      ],
+    },
+  ];
+
   return (
     <footer id="contact" className="bg-footer-background text-foreground">
       {/* Main Footer */}
@@ -38,15 +57,14 @@ export function SiteFooter() {
             <img src="/tcs.svg" alt="TCS" className="h-9 w-auto" />
 
             <p className="mt-5 max-w-xs text-sm leading-[1.7] text-muted-foreground">
-              Pakistan's largest courier and logistics network, moving people and businesses forward
-              since 1983.
+              {t("site:footer.description")}
             </p>
           </div>
         </Reveal>
 
         {/* Footer Columns */}
-        {columns.map((column, i) => (
-          <Reveal key={column.title} delay={0.08 * (i + 1)}>
+        {columns.map((column) => (
+          <Reveal key={column.title}>
             <div>
               <h3 className="text-primary text-sm font-bold tracking-[0.12em] uppercase">
                 {column.title}
@@ -54,12 +72,12 @@ export function SiteFooter() {
 
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#contact"
+                      href={link.href}
                       className="link-underline text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -72,13 +90,13 @@ export function SiteFooter() {
         <Reveal delay={0.32}>
           <div>
             <h3 className="text-primary text-sm font-semibold tracking-[0.12em] uppercase">
-              Head Office
+              {t("site:footer.head_office")}
             </h3>
 
             <address className="mt-5 text-sm leading-[1.7] text-muted-foreground not-italic">
-              101–104, Civil Aviation Club Road
+              {t("site:footer.address_line1")}
               <br />
-              Karachi 75202, Pakistan
+              {t("site:footer.address_line2")}
             </address>
 
             {/* Newsletter */}
@@ -87,7 +105,7 @@ export function SiteFooter() {
               className="mt-6 flex items-center gap-2 rounded-full border border-border bg-background/60 p-1.5 transition-colors focus-within:border-primary"
             >
               <label htmlFor="newsletter" className="sr-only">
-                Email address
+                {t("site:footer.newsletter_placeholder")}
               </label>
 
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-muted-foreground">
@@ -98,12 +116,12 @@ export function SiteFooter() {
                 id="newsletter"
                 type="email"
                 required
-                placeholder="Signup for updates"
+                placeholder={t("site:footer.newsletter_placeholder")}
                 className="h-9 w-full min-w-0 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
               />
 
               <RippleButton type="submit" size="sm" className="h-9 shrink-0 px-4">
-                Join
+                {t("common:actions.join")}
               </RippleButton>
             </form>
 
@@ -131,16 +149,20 @@ export function SiteFooter() {
       {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container-page flex flex-col gap-3 py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© TCS {new Date().getFullYear()}. All rights reserved.</p>
+          <p>{t("site:footer.copyright", { year: new Date().getFullYear() })}</p>
 
           <div className="flex flex-wrap gap-6">
-            {["Terms of Use", "Privacy Policy", "FAQs"].map((item) => (
+            {[
+              { label: t("site:footer.terms"), href: "#contact" },
+              { label: t("site:footer.privacy"), href: "#contact" },
+              { label: t("site:footer.faqs"), href: "#contact" },
+            ].map((item) => (
               <a
-                key={item}
-                href="#contact"
+                key={item.label}
+                href={item.href}
                 className="link-underline transition-colors hover:text-primary"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
