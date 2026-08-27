@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "صفحہ اول",
+    "about": "ہمارے بارے میں",
+    "services": "خدمات",
+    "contact": "رابطہ کریں"
+  },
+  "track_bar": {
+    "title": "اپنے پارسل کی ٹریکنگ کریں",
+    "placeholder_1": "اپنا ٹریکنگ نمبر درج کریں",
+    "placeholder_2": "مثلاً 123456789",
+    "placeholder_3": "اندرونِ ملک پارسل ٹریک کریں",
+    "placeholder_4": "بین الاقوامی پارسل ٹریک کریں",
+    "action_kardo": "ٹی سی ایس کر دو",
+    "action_pickup": "پک اپ شیڈول کریں",
+    "action_rate": "کرایہ معلوم کریں",
+    "action_locator": "ٹی سی ایس سنٹر تلاش کریں",
+    "action_account": "اکاؤنٹ کھولیں"
+  },
+  "hero": {
+    "title_part1": "وہ سروس جو ",
+    "title_highlight": "پاکستان",
+    "title_part2": " کو آگے بڑھاتی ہے۔",
+    "subtitle": "ٹی سی ایس کی پیش کردہ وسیع خدمات کا جائزہ لیں۔"
+  },
+  "services": {
+    "title": "ہماری خدمات",
+    "air": "ایئر ایکسپریس",
+    "logistics": "لوجسٹکس",
+    "sentiments": "سینٹیمینٹس",
+    "ecom": "ای کامرس",
+    "international": "بین الاقوامی",
+    "studio": "اسٹوڈیو",
+    "redbox": "ریڈ باکس"
+  },
+  "footer": {
+    "description": "پاکستان کا سب سے بڑا کورئیر اور لوجسٹکس نیٹ ورک، جو 1983 سے لوگوں اور کاروباروں کو آگے بڑھا رہا ہے۔",
+    "company": "کمپنی",
+    "about_us": "ہمارے بارے میں",
+    "mission": "مقصد و بنیادی اقدار",
+    "leadership": "قیادت",
+    "careers": "ملازمت کے مواقع",
+    "products_services": "مصنوعات اور خدمات",
+    "domestic": "اندرونِ ملک",
+    "international_svc": "بین الاقوامی",
+    "express": "ایکسپریس",
+    "logistics_svc": "لوجسٹکس",
+    "ecom_svc": "ای کامرس حل",
+    "resources": "وسائل",
+    "track_shipment": "پارسل ٹریک کریں",
+    "rate_calc": "کرایہ حساب کریں",
+    "locate_branch": "برانچ تلاش کریں",
+    "help_centre": "مدد کا مرکز",
+    "head_office": "مرکزی دفتر",
+    "address_line1": "101–104، سول ایوی ایشن کلب روڈ",
+    "address_line2": "کراچی 75202، پاکستان",
+    "newsletter_placeholder": "تازہ ترین معلومات کے لیے ای میل درج کریں",
+    "copyright": "© TCS {{year}}۔ جملہ حقوق محفوظ ہیں۔",
+    "terms": "شرائط و ضوابط",
+    "privacy": "پرائیویسی پالیسی",
+    "faqs": "ہمیشہ پوچھے جانے والے سوالات"
+  }
+}

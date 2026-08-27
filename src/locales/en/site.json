@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "track_bar": {
+    "title": "Track Your Shipment",
+    "placeholder_1": "Enter your tracking number",
+    "placeholder_2": "e.g. 123456789",
+    "placeholder_3": "Track a domestic shipment",
+    "placeholder_4": "Track an international parcel",
+    "action_kardo": "TCS Kardo",
+    "action_pickup": "Schedule a Pickup",
+    "action_rate": "Rate Calculator",
+    "action_locator": "TCS Locator",
+    "action_account": "Open an Account"
+  },
+  "hero": {
+    "title_part1": "Service that ",
+    "title_highlight": "moves",
+    "title_part2": " Pakistan forward.",
+    "subtitle": "Explore the wide range of services offered by TCS."
+  },
+  "services": {
+    "title": "Our Services",
+    "air": "Air",
+    "logistics": "Logistics",
+    "sentiments": "Sentiments",
+    "ecom": "E-Com",
+    "international": "International",
+    "studio": "Studio",
+    "redbox": "Red Box"
+  },
+  "footer": {
+    "description": "Pakistan's largest courier and logistics network, moving people and businesses forward since 1983.",
+    "company": "Company",
+    "about_us": "About Us",
+    "mission": "Mission & Core Values",
+    "leadership": "Leadership",
+    "careers": "Careers",
+    "products_services": "Products & Services",
+    "domestic": "Domestic",
+    "international_svc": "International",
+    "express": "Express",
+    "logistics_svc": "Logistics",
+    "ecom_svc": "E-Com Solutions",
+    "resources": "Resources",
+    "track_shipment": "Track Shipment",
+    "rate_calc": "Rate Calculator",
+    "locate_branch": "Locate a Branch",
+    "help_centre": "Help Centre",
+    "head_office": "Head Office",
+    "address_line1": "101–104, Civil Aviation Club Road",
+    "address_line2": "Karachi 75202, Pakistan",
+    "newsletter_placeholder": "Signup for updates",
+    "copyright": "© TCS {{year}}. All rights reserved.",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "faqs": "FAQs"
+  }
+}

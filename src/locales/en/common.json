@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "name": "TCS",
+    "slogan": "We Move You",
+    "country": "Pakistan"
+  },
+  "actions": {
+    "search": "Search",
+    "login": "Login",
+    "my_tcs": "My TCS",
+    "join": "Join",
+    "track": "Track Shipment",
+    "tracking": "Tracking...",
+    "explore": "Explore"
+  },
+  "languages": {
+    "en": "English",
+    "ur": "اردو"
+  },
+  "status": {
+    "loading": "Loading..."
+  }
+}

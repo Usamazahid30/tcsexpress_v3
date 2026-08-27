@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useSpring } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 function BrandShape() {
   const x = useMotionValue(0);
@@ -15,14 +16,10 @@ function BrandShape() {
   });
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Only apply the 3D effect for mouse/pen.
-    // Avoid unnecessary calculations on touch devices.
     if (e.pointerType === "touch") return;
 
     const rect = e.currentTarget.getBoundingClientRect();
-
     const relativeX = (e.clientX - rect.left) / rect.width - 0.5;
-
     const relativeY = (e.clientY - rect.top) / rect.height - 0.5;
 
     x.set(relativeX * 30);
@@ -39,27 +36,9 @@ function BrandShape() {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       className="relative grid place-items-center"
-      style={{
-        perspective: 800,
-      }}
+      style={{ perspective: 800 }}
       aria-hidden="true"
     >
-      {/* Soft glow behind logo */}
-      {/* <div
-        className="
-          pointer-events-none
-          absolute
-          h-72
-          w-72
-          rounded-full
-          bg-primary/20
-          blur-3xl
-          md:h-96
-          md:w-96
-        "
-      /> */}
-
-      {/* TCS Logo */}
       <motion.img
         src="/tcs.svg"
         alt=""
@@ -70,25 +49,19 @@ function BrandShape() {
           transformStyle: "preserve-3d",
           willChange: "transform",
         }}
-        className="
-          relative w-[90%] max-w-140 select-none"
-        // drop-shadow-[0_32px_60px_oklch(0.56_0.229_27.6/0.32)]
+        className="relative w-[90%] max-w-140 select-none"
       />
     </div>
   );
 }
 
 export function Hero() {
+  const { t } = useTranslation(["site", "common"]);
+
   return (
     <section
       id="top"
-      className="
-        relative
-        overflow-hidden
-        pt-10
-        pb-2
-        lg:pt-14
-      "
+      className="relative overflow-hidden pt-10 pb-2 lg:pt-14"
       style={{
         background: "var(--gradient-surface)",
       }}
@@ -98,30 +71,11 @@ export function Hero() {
 
       {/* Decorative background glow */}
       <div
-        className="
-          pointer-events-none
-          absolute
-          -left-24
-          top-8
-          h-72
-          w-72
-          rounded-full
-          bg-primary/5
-          blur-3xl
-        "
+        className="pointer-events-none absolute -left-24 top-8 h-72 w-72 rounded-full bg-primary/5 blur-3xl"
         aria-hidden="true"
       />
 
-      <div
-        className="
-          container-page
-          grid
-          items-center
-          gap-6
-          lg:grid-cols-[1.05fr_0.95fr]
-          lg:gap-10
-        "
-      >
+      <div className="container-page grid items-center gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         {/* LEFT CONTENT */}
         <motion.div
           initial="hidden"
@@ -153,7 +107,9 @@ export function Hero() {
             }}
           >
             <h1 className="text-hero max-w-xl text-foreground">
-              Service that <span className="text-primary">moves</span> Pakistan forward.
+              {t("site:hero.title_part1")}
+              <span className="text-primary">{t("site:hero.title_highlight")}</span>
+              {t("site:hero.title_part2")}
             </h1>
           </motion.div>
 
@@ -174,17 +130,8 @@ export function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <p
-              className="
-                mt-4
-                max-w-lg
-                text-[1.3rem]
-                font-semibold
-                leading-[1.55]
-                text-foreground/80
-              "
-            >
-              Explore the wide range of services offered by TCS.
+            <p className="mt-4 max-w-lg text-[1.3rem] font-semibold leading-[1.55] text-foreground/80">
+              {t("site:hero.subtitle")}
             </p>
           </motion.div>
         </motion.div>

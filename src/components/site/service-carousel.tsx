@@ -1,59 +1,55 @@
 import { useState, useRef, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface ServiceItem {
   id: string;
-  title: string;
   image: string;
   href: string;
 }
 
-const services: ServiceItem[] = [
+const rawServices: ServiceItem[] = [
   {
     id: "air",
-    title: "Air",
     image: "/air.jpg",
     href: "#services",
   },
   {
     id: "logistics",
-    title: "Logistics",
     image: "/logistics.jpg",
     href: "#services",
   },
   {
     id: "sentiments",
-    title: "Sentiments",
     image: "/sentiments.jpg",
     href: "#services",
   },
   {
     id: "ecom",
-    title: "E-Com",
     image: "/ecom.jpg",
     href: "#services",
   },
   {
     id: "international",
-    title: "International",
     image: "/internationals.jpg",
     href: "#services",
   },
   {
     id: "studio",
-    title: "Studio",
     image: "/studio.jpg",
     href: "#services",
   },
   {
     id: "redbox",
-    title: "Red Box",
     image: "/red.jpg",
     href: "#services",
   },
 ];
 
 export function ServiceCarousel() {
+  const { t, i18n } = useTranslation(["site", "common"]);
+  const isRtl = i18n.language === "ur";
+
   const [activeIndex, setActiveIndex] = useState(3);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -61,6 +57,11 @@ export function ServiceCarousel() {
   const isPointerDown = useRef(false);
   const dragStartX = useRef(0);
   const hasMoved = useRef(false);
+
+  const services = rawServices.map((service) => ({
+    ...service,
+    title: t(`site:services.${service.id}`),
+  }));
 
   const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (e.button !== 0) return;
@@ -94,11 +95,13 @@ export function ServiceCarousel() {
       if (hasMoved.current) {
         const threshold = 50;
         if (dragOffset < -threshold) {
-          // Swiped left -> advance forward
-          setActiveIndex((prev) => Math.min(services.length - 1, prev + 1));
+          setActiveIndex((prev) =>
+            isRtl ? Math.max(0, prev - 1) : Math.min(services.length - 1, prev + 1),
+          );
         } else if (dragOffset > threshold) {
-          // Swiped right -> go backward
-          setActiveIndex((prev) => Math.max(0, prev - 1));
+          setActiveIndex((prev) =>
+            isRtl ? Math.min(services.length - 1, prev + 1) : Math.max(0, prev - 1),
+          );
         }
         try {
           if ((e.currentTarget as HTMLElement).hasPointerCapture?.(e.pointerId)) {
@@ -117,7 +120,7 @@ export function ServiceCarousel() {
         setDragOffset(0);
       }
     },
-    [dragOffset],
+    [dragOffset, isRtl, services.length],
   );
 
   const handleCardClick = (index: number) => {
@@ -162,10 +165,13 @@ export function ServiceCarousel() {
               if (offset < 0) translateX = -translateX;
             }
 
-            // Add real-time drag displacement
+            if (isRtl) {
+              translateX = -translateX;
+            }
+
             translateX += dragOffset;
 
-            const rotateY = isActive ? 0 : offset < 0 ? 16 : -16;
+            const rotateY = isActive ? 0 : offset < 0 ? (isRtl ? -16 : 16) : isRtl ? 16 : -16;
             const scale = isActive ? 1 : 0.8;
             const zIndex = 50 - absOffset * 10;
 
@@ -212,11 +218,11 @@ export function ServiceCarousel() {
                   </div>
                 </div>
 
-                {/* Bottom content: Circular Arrow button in bottom-right */}
+                {/* Bottom content: Circular Arrow button */}
                 <div className="service-card__bottom">
                   <a
                     href={service.href}
-                    aria-label={`Explore ${service.title}`}
+                    aria-label={`${t("common:actions.explore")} ${service.title}`}
                     className={`service-card__arrow ${
                       isActive ? "service-card__arrow--active" : "service-card__arrow--inactive"
                     }`}
@@ -226,7 +232,7 @@ export function ServiceCarousel() {
                       }
                     }}
                   >
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 rtl-flip" />
                   </a>
                 </div>
               </div>
