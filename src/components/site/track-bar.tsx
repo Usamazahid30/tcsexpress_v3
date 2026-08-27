@@ -14,7 +14,7 @@ import { RippleButton } from "./ripple-button";
 
 const placeholders = [
   "Enter your tracking number",
-  "e.g. 785412963001",
+  "e.g. 123456789",
   "Track a domestic shipment",
   "Track an international parcel",
 ];
