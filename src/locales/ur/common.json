@@ -11,7 +11,14 @@
     "join": "شامل ہوں",
     "track": "ٹریک کریں",
     "tracking": "ٹریکنگ ہو رہی ہے...",
-    "explore": "تفصیلات دیکھیں"
+    "explore": "تفصیلات دیکھیں",
+    "prev_service": "پچھلی سروس",
+    "next_service": "اگلی سروس"
+  },
+  "nav": {
+    "open_menu": "مینیو کھولیں",
+    "close_menu": "مینیو بند کریں",
+    "tcs_home": "ٹی سی ایس ہوم"
   },
   "languages": {
     "en": "English",

@@ -60,7 +60,7 @@ export function SiteHeader() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="TCS home">
+          <a href="#top" className="flex min-w-0 items-center gap-3" aria-label={t("common:nav.tcs_home")}>
             <img
               src="/tcs.svg"
               alt="TCS — We Move You"
@@ -88,7 +88,7 @@ export function SiteHeader() {
               <Search className="h-4.5 w-4.5" />
             </button>
             <a
-              href="#login"
+              href="#contact"
               className="press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground hover:text-primary"
             >
               <User className="h-4.5 w-4.5" /> {t("common:actions.login")}
@@ -130,7 +130,7 @@ export function SiteHeader() {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("common:nav.close_menu") : t("common:nav.open_menu")}
             aria-expanded={open}
             className="press grid h-11 w-11 place-items-center rounded-full border border-border lg:hidden"
           >

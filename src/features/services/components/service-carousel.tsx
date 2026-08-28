@@ -136,17 +136,17 @@ export function ServiceCarousel() {
   return (
     <section
       id="services"
-      className="service-carousel-section relative overflow-hidden pb-16 lg:pb-24 select-none"
+      className="service-carousel-section relative overflow-hidden pb-16 lg:pb-24 select-none max-w-full overflow-x-clip"
       style={{ background: "var(--gradient-surface)" }}
     >
       {/* Top-Right Circular Navigation Buttons */}
-      <div className="container-page flex justify-end items-center pt-2 ">
+      <div className="container-page flex justify-end items-center pt-2">
         <div className="flex items-center gap-1">
           {/* Left Arrow Button (Outline Circle) */}
           <button
             onClick={handlePrev}
             disabled={isRtl ? activeIndex === services.length - 1 : activeIndex === 0}
-            aria-label="Previous service"
+            aria-label={t("common:actions.prev_service")}
             className="press grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full border border-neutral-300 bg-white text-neutral-700 shadow-xs hover:border-primary hover:text-primary disabled:opacity-35 disabled:pointer-events-none transition-all"
           >
             <ArrowLeft className="h-4 w-4 rtl-flip" />
@@ -156,7 +156,7 @@ export function ServiceCarousel() {
           <button
             onClick={handleNext}
             disabled={isRtl ? activeIndex === 0 : activeIndex === services.length - 1}
-            aria-label="Next service"
+            aria-label={t("common:actions.next_service")}
             className="press grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover disabled:opacity-35 disabled:pointer-events-none transition-all"
           >
             <ArrowRight className="h-4 w-4 rtl-flip" />
