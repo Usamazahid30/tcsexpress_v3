@@ -46,6 +46,11 @@ updateDocumentDir(i18n.language || "en");
 
 i18n.on("languageChanged", (lng) => {
   updateDocumentDir(lng);
+  try {
+    localStorage.setItem("i18nextLng", lng);
+  } catch {
+    // ignore quota/private browsing issues
+  }
 });
 
 export default i18n;

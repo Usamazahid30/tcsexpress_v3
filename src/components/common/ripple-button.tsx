@@ -1,4 +1,4 @@
-import { useRef, useState, type ButtonHTMLAttributes } from "react";
+import { useEffect, useRef, useState, type ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 type Ripple = { id: number; x: number; y: number };
@@ -33,6 +33,13 @@ export function RippleButton({
 }: RippleButtonProps) {
   const [ripples, setRipples] = useState<Ripple[]>([]);
   const id = useRef(0);
+  const timeouts = useRef<number[]>([]);
+
+  useEffect(() => {
+    return () => {
+      timeouts.current.forEach((t) => window.clearTimeout(t));
+    };
+  }, []);
 
   return (
     <button
@@ -45,7 +52,11 @@ export function RippleButton({
           y: event.clientY - rect.top,
         };
         setRipples((prev) => [...prev, next]);
-        window.setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== next.id)), 650);
+        const timerId = window.setTimeout(() => {
+          setRipples((prev) => prev.filter((r) => r.id !== next.id));
+          timeouts.current = timeouts.current.filter((t) => t !== timerId);
+        }, 650);
+        timeouts.current.push(timerId);
         onClick?.(event);
       }}
       className={cn(

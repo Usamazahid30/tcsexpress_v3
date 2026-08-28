@@ -132,7 +132,9 @@ export function SiteFooter() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={
-                  subscribed ? "Thank you for subscribing!" : t("site:footer.newsletter_placeholder")
+                  subscribed
+                    ? "Thank you for subscribing!"
+                    : t("site:footer.newsletter_placeholder")
                 }
                 className="h-9 w-full min-w-0 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
               />

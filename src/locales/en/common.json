@@ -11,7 +11,14 @@
     "join": "Join",
     "track": "Track Shipment",
     "tracking": "Tracking...",
-    "explore": "Explore"
+    "explore": "Explore",
+    "prev_service": "Previous service",
+    "next_service": "Next service"
+  },
+  "nav": {
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "tcs_home": "TCS Home"
   },
   "languages": {
     "en": "English",
