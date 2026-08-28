@@ -39,18 +39,28 @@ function BrandShape() {
       style={{ perspective: 800 }}
       aria-hidden="true"
     >
-      <motion.img
-        src="/tcs.svg"
-        alt=""
-        draggable={false}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-          willChange: "transform",
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{
+          repeat: Infinity,
+          duration: 4.5,
+          ease: "easeInOut",
         }}
-        className="relative w-[90%] max-w-140 select-none"
-      />
+        className="w-full flex justify-center"
+      >
+        <motion.img
+          src="/tcs.svg"
+          alt=""
+          draggable={false}
+          style={{
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+            willChange: "transform",
+          }}
+          className="relative w-[90%] max-w-140 select-none drop-shadow-xl"
+        />
+      </motion.div>
     </div>
   );
 }

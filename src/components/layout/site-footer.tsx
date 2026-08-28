@@ -1,9 +1,8 @@
-import { Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
+import { useState } from "react";
+import { Check, Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-
-import { Reveal } from "./reveal";
-import { RippleButton } from "./ripple-button";
+import { Reveal, RippleButton } from "@/components/common";
 
 const socials = [
   { icon: Facebook, label: "Facebook" },
@@ -15,6 +14,16 @@ const socials = [
 
 export function SiteFooter() {
   const { t } = useTranslation(["site", "common"]);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email.trim()) return;
+    setSubscribed(true);
+    setEmail("");
+    setTimeout(() => setSubscribed(false), 4000);
+  };
 
   const columns = [
     {
@@ -101,7 +110,7 @@ export function SiteFooter() {
 
             {/* Newsletter */}
             <form
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={handleSubscribe}
               className="mt-6 flex items-center gap-2 rounded-full border border-border bg-background/60 p-1.5 transition-colors focus-within:border-primary"
             >
               <label htmlFor="newsletter" className="sr-only">
@@ -109,19 +118,27 @@ export function SiteFooter() {
               </label>
 
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-muted-foreground">
-                <Mail className="h-4 w-4" />
+                {subscribed ? (
+                  <Check className="h-4 w-4 text-emerald-500" />
+                ) : (
+                  <Mail className="h-4 w-4" />
+                )}
               </span>
 
               <input
                 id="newsletter"
                 type="email"
                 required
-                placeholder={t("site:footer.newsletter_placeholder")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={
+                  subscribed ? "Thank you for subscribing!" : t("site:footer.newsletter_placeholder")
+                }
                 className="h-9 w-full min-w-0 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
               />
 
               <RippleButton type="submit" size="sm" className="h-9 shrink-0 px-4">
-                {t("common:actions.join")}
+                {subscribed ? "Done!" : t("common:actions.join")}
               </RippleButton>
             </form>
 

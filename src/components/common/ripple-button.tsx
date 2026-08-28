@@ -10,7 +10,7 @@ interface RippleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<string, string> = {
   primary:
-    "text-primary-foreground shadow-[var(--shadow-soft)]  [background:var(--gradient-primary)]",
+    "text-primary-foreground shadow-[var(--shadow-soft)] [background:var(--gradient-primary)]",
   outline:
     "border border-border bg-background text-foreground hover:border-primary/40 hover:text-primary",
   ghost: "text-foreground hover:bg-muted",

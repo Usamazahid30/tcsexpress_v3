@@ -11,7 +11,7 @@ import {
   User,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { RippleButton } from "./ripple-button";
+import { RippleButton } from "@/components/common";
 
 export function TrackBar() {
   const { t } = useTranslation(["site", "common"]);
