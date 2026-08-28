@@ -1,12 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-interface ServiceItem {
-  id: string;
-  image: string;
-  href: string;
-}
+import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
   {

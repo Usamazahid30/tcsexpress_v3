@@ -1,9 +1,7 @@
 import { Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-
-import { Reveal } from "./reveal";
-import { RippleButton } from "./ripple-button";
+import { Reveal, RippleButton } from "@/components/common";
 
 const socials = [
   { icon: Facebook, label: "Facebook" },

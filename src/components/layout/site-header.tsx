@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Globe, Menu, Search, User, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { RippleButton } from "./ripple-button";
+import { RippleButton } from "@/components/common";
 
 export function SiteHeader() {
   const { t, i18n } = useTranslation(["site", "common"]);
