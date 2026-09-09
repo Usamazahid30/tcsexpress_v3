@@ -173,7 +173,7 @@
     color: var(--color-foreground);
   }
 
-  /* Smooth dark-mode transition (scoped to theme-sensitive properties) */
+  /* Smooth dark-mode transition fallback (scoped to theme-sensitive properties) */
   html.theme-transition,
   html.theme-transition *,
   html.theme-transition *::before,
@@ -184,6 +184,21 @@
       border-color 0.35s ease,
       box-shadow 0.35s ease !important;
     transition-delay: 0s !important;
+  }
+
+  /* View Transitions API - Expanding circular reveal */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    z-index: 9999;
   }
 }
 

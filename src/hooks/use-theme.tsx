@@ -1,10 +1,21 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
+import { flushSync } from "react-dom";
 
 type Theme = "light" | "dark";
 
+export type ThemeToggleEvent = ReactMouseEvent<HTMLElement> | MouseEvent;
+
 interface ThemeContextValue {
   theme: Theme;
-  toggleTheme: () => void;
+  toggleTheme: (e?: ThemeToggleEvent) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -30,6 +41,60 @@ function applyTheme(theme: Theme) {
   }
 }
 
+/**
+ * Executes an expanding circle reveal transition using the native View Transitions API.
+ * Falls back to smooth transition for unsupported browsers or when prefers-reduced-motion is active.
+ */
+export function toggleThemeWithTransition(
+  e: ThemeToggleEvent | undefined,
+  toggleThemeCallback: () => void,
+) {
+  // Immediate fallback if View Transitions API is not supported or reduced motion is preferred
+  if (
+    !e ||
+    typeof document.startViewTransition !== "function" ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    const root = document.documentElement;
+    root.classList.add("theme-transition");
+    toggleThemeCallback();
+    window.setTimeout(() => {
+      root.classList.remove("theme-transition");
+    }, 400);
+    return;
+  }
+
+  const x = e.clientX;
+  const y = e.clientY;
+
+  // Calculate maximum Euclidean distance to viewport corners
+  const endRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  );
+
+  const transition = document.startViewTransition(() => {
+    flushSync(() => {
+      toggleThemeCallback();
+    });
+  });
+
+  transition.ready.then(() => {
+    const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
+
+    document.documentElement.animate(
+      {
+        clipPath,
+      },
+      {
+        duration: 500,
+        easing: "ease-in-out",
+        pseudoElement: "::view-transition-new(root)",
+      },
+    );
+  });
+}
+
 interface ThemeProviderProps {
   children: ReactNode;
 }
@@ -42,30 +107,18 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     applyTheme(theme);
   }, [theme]);
 
-  const toggleTheme = useCallback(() => {
-    const root = document.documentElement;
-
-    // Enable transition class for smooth animation
-    root.classList.add("theme-transition");
-
-    setTheme((prev) => {
-      const next = prev === "light" ? "dark" : "light";
-      localStorage.setItem(STORAGE_KEY, next);
-      return next;
+  const toggleTheme = useCallback((e?: ThemeToggleEvent) => {
+    toggleThemeWithTransition(e, () => {
+      setTheme((prev) => {
+        const next = prev === "light" ? "dark" : "light";
+        applyTheme(next);
+        localStorage.setItem(STORAGE_KEY, next);
+        return next;
+      });
     });
-
-    // Remove transition class after animation completes
-    const cleanup = () => {
-      root.classList.remove("theme-transition");
-    };
-    window.setTimeout(cleanup, 400);
   }, []);
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme(): ThemeContextValue {
