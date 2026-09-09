@@ -60,7 +60,7 @@ export function SiteHeader() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          <a href="#top" className="flex min-w-0 items-center gap-3" aria-label={t("common:nav.tcs_home")}>
+          <a className="flex min-w-0 items-center gap-3" aria-label={t("common:nav.tcs_home")}>
             <img
               src="/tcs.svg"
               alt="TCS — We Move You"

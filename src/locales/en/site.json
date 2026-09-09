@@ -27,11 +27,11 @@
     "title": "Our Services",
     "air": "Air",
     "logistics": "Logistics",
-    "sentiments": "Sentiments",
-    "ecom": "E-Com",
-    "international": "International",
+    "sentiments": "Sentiments Express",
+    "ecom": "E-Com Solutions",
+    "international": "International Express",
     "studio": "Studio",
-    "redbox": "Red Box"
+    "domestic": "Domestic Express"
   },
   "footer": {
     "description": "Pakistan's largest courier and logistics network, moving people and businesses forward since 1983.",

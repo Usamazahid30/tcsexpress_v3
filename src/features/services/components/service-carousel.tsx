@@ -26,7 +26,7 @@ const rawServices: ServiceItem[] = [
   },
   {
     id: "international",
-    image: "/internationals.jpg",
+    image: "/International.jpg",
     href: "#services",
   },
   {
@@ -35,7 +35,7 @@ const rawServices: ServiceItem[] = [
     href: "#services",
   },
   {
-    id: "redbox",
+    id: "domestic",
     image: "/red.jpg",
     href: "#services",
   },

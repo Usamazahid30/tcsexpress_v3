@@ -90,7 +90,7 @@ export function TrackBar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1 + i * 0.06 }}
               whileHover={{ y: -4 }}
-              className="group grid h-21.5 w-full place-items-center gap-1.5 rounded-2xl border border-border bg-card px-3 text-center shadow-(--shadow-soft) transition-colors hover:border-primary/30 hover:shadow-(--shadow-elevated) sm:w-26"
+              className="group flex flex-col items-center justify-center gap-1.5 h-21.5 w-full rounded-2xl border border-border bg-card px-3 text-center shadow-(--shadow-soft) transition-colors hover:border-primary/30 hover:shadow-(--shadow-elevated) sm:w-27"
             >
               <action.icon className="h-5 w-5 text-primary transition-transform duration-300 group-hover:-translate-y-0.5" />
               <span className="text-[11px] font-medium leading-tight text-muted-foreground">
