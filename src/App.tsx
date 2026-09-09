@@ -1,10 +1,13 @@
 import { MainLayout } from "@/components/layout";
+import { ThemeProvider } from "@/hooks/use-theme";
 import { HomePage } from "@/pages";
 
 export default function App() {
   return (
-    <MainLayout>
-      <HomePage />
-    </MainLayout>
+    <ThemeProvider>
+      <MainLayout>
+        <HomePage />
+      </MainLayout>
+    </ThemeProvider>
   );
 }

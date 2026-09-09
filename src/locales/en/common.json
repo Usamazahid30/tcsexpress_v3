@@ -26,5 +26,9 @@
   },
   "status": {
     "loading": "Loading..."
+  },
+  "theme": {
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode"
   }
 }

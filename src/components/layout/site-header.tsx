@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Globe, Menu, Search, User, X } from "lucide-react";
+import { Globe, Menu, Moon, Search, Sun, User, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { RippleButton } from "@/components/common";
+import { useTheme } from "@/hooks/use-theme";
 
 export function SiteHeader() {
   const { t, i18n } = useTranslation(["site", "common"]);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -126,6 +128,30 @@ export function SiteHeader() {
                 {t("common:languages.ur")}
               </button>
             </div>
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? t("common:theme.light_mode") : t("common:theme.dark_mode")}
+              className="press grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground hover:bg-muted hover:border-primary/40 shadow-xs transition-colors"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={theme}
+                  initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                  transition={{ duration: 0.25 }}
+                  className="grid place-items-center"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-4.5 w-4.5 text-foreground" />
+                  ) : (
+                    <Moon className="h-4.5 w-4.5 text-foreground" />
+                  )}
+                </motion.span>
+              </AnimatePresence>
+            </button>
           </div>
 
           <button
@@ -194,6 +220,41 @@ export function SiteHeader() {
                       </button>
                     </div>
                   </div>
+
+                  {/* Mobile Dark Mode Toggle */}
+                  <button
+                    onClick={toggleTheme}
+                    role="switch"
+                    aria-checked={theme === "dark"}
+                    className="flex w-full items-center justify-between gap-3 rounded-2xl border border-border bg-card p-3 text-start shadow-xs transition-colors hover:border-primary/30"
+                  >
+                    <div className="flex items-center gap-2.5 text-sm font-medium text-foreground">
+                      {theme === "dark" ? (
+                        <Sun className="h-4 w-4 text-primary shrink-0" />
+                      ) : (
+                        <Moon className="h-4 w-4 text-primary shrink-0" />
+                      )}
+                      <span>
+                        {theme === "dark"
+                          ? t("common:theme.light_mode")
+                          : t("common:theme.dark_mode")}
+                      </span>
+                    </div>
+                    <div
+                      dir="ltr"
+                      className={`flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 transition-colors ${
+                        theme === "dark"
+                          ? "bg-primary border border-transparent"
+                          : "bg-neutral-200 border border-neutral-300"
+                      }`}
+                    >
+                      <motion.div
+                        className="h-5 w-5 rounded-full bg-white shadow-sm border border-neutral-300/40"
+                        animate={{ x: theme === "dark" ? 20 : 0 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    </div>
+                  </button>
 
                   <div className="flex items-center gap-3">
                     <RippleButton size="sm" className="flex-1">

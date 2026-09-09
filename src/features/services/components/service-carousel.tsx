@@ -147,7 +147,7 @@ export function ServiceCarousel() {
             onClick={handlePrev}
             disabled={isRtl ? activeIndex === services.length - 1 : activeIndex === 0}
             aria-label={t("common:actions.prev_service")}
-            className="press grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full border border-neutral-300 bg-white text-neutral-700 shadow-xs hover:border-primary hover:text-primary disabled:opacity-35 disabled:pointer-events-none transition-all"
+            className="press grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full border border-border bg-card text-foreground shadow-xs hover:border-primary hover:text-primary disabled:opacity-35 disabled:pointer-events-none transition-all"
           >
             <ArrowLeft className="h-4 w-4 rtl-flip" />
           </button>

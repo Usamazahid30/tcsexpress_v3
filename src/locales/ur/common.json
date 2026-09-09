@@ -26,5 +26,9 @@
   },
   "status": {
     "loading": "لوڈ ہو رہا ہے..."
+  },
+  "theme": {
+    "dark_mode": "ڈارک موڈ",
+    "light_mode": "لائٹ موڈ"
   }
 }
