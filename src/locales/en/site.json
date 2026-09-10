@@ -31,7 +31,9 @@
     "ecom": "E-Com Solutions",
     "international": "International Express",
     "studio": "Studio",
-    "domestic": "Domestic Express"
+    "domestic": "Domestic Express",
+    "student": "Student Plus",
+    "travel": "Travel & Tours"
   },
   "footer": {
     "description": "Pakistan's largest courier and logistics network, moving people and businesses forward since 1983.",
