@@ -39,6 +39,16 @@ const rawServices: ServiceItem[] = [
     image: "/red.jpg",
     href: "#services",
   },
+  {
+    id: "student",
+    image: "/student.jpg",
+    href: "#services",
+  },
+  {
+    id: "travel",
+    image: "/travel.jpg",
+    href: "#services",
+  },
 ];
 
 export function ServiceCarousel() {
