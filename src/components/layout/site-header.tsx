@@ -62,10 +62,14 @@ export function SiteHeader() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          <a className="flex min-w-0 items-center gap-3" aria-label={t("common:nav.tcs_home")}>
+          <a
+            href="/"
+            className="flex min-w-0 items-center gap-3"
+            aria-label={t("common:nav.tcs_home")}
+          >
             <img
               src="/tcs.svg"
-              alt="TCS — We Move You"
+              alt="TCS"
               className={`w-auto transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
             />
           </a>
@@ -90,7 +94,7 @@ export function SiteHeader() {
               <Search className="h-4.5 w-4.5" />
             </button>
             <a
-              href="#contact"
+              href=""
               className="press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground hover:text-primary"
             >
               <User className="h-4.5 w-4.5" /> {t("common:actions.login")}
@@ -132,7 +136,9 @@ export function SiteHeader() {
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
-              aria-label={theme === "dark" ? t("common:theme.light_mode") : t("common:theme.dark_mode")}
+              aria-label={
+                theme === "dark" ? t("common:theme.light_mode") : t("common:theme.dark_mode")
+              }
               className="press grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground hover:bg-muted hover:border-primary/40 shadow-xs transition-colors"
             >
               <AnimatePresence mode="wait" initial={false}>
