@@ -4,51 +4,15 @@ import { useTranslation } from "react-i18next";
 import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
-  {
-    id: "air",
-    image: "/air.jpg",
-    href: "#services",
-  },
-  {
-    id: "logistics",
-    image: "/logistics.jpg",
-    href: "#services",
-  },
-  {
-    id: "sentiments",
-    image: "/sentiments.jpg",
-    href: "#services",
-  },
-  {
-    id: "ecom",
-    image: "/ecom.jpg",
-    href: "#services",
-  },
-  {
-    id: "international",
-    image: "/International.jpg",
-    href: "#services",
-  },
-  {
-    id: "studio",
-    image: "/studio.jpg",
-    href: "#services",
-  },
-  {
-    id: "domestic",
-    image: "/red.jpg",
-    href: "#services",
-  },
-  {
-    id: "student",
-    image: "/student.jpg",
-    href: "#services",
-  },
-  {
-    id: "travel",
-    image: "/travel.jpg",
-    href: "#services",
-  },
+  { id: "air", image: "/air.jpg", href: "#services" },
+  { id: "logistics", image: "/logistics.jpg", href: "#services" },
+  { id: "sentiments", image: "/sentiments.jpg", href: "#services" },
+  { id: "ecom", image: "/ecom.jpg", href: "#services" },
+  { id: "international", image: "/International.jpg", href: "#services" },
+  { id: "studio", image: "/studio.jpg", href: "#services" },
+  { id: "domestic", image: "/red.jpg", href: "#services" },
+  { id: "student", image: "/student.jpg", href: "#services" },
+  { id: "travel", image: "/travel.jpg", href: "#services" },
 ];
 
 export function ServiceCarousel() {
@@ -58,6 +22,7 @@ export function ServiceCarousel() {
   const [activeIndex, setActiveIndex] = useState(3);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const isPointerDown = useRef(false);
   const dragStartX = useRef(0);
@@ -152,7 +117,6 @@ export function ServiceCarousel() {
       {/* Top-Right Circular Navigation Buttons */}
       <div className="container-page flex justify-end items-center pt-2">
         <div className="flex items-center gap-1">
-          {/* Left Arrow Button (Outline Circle) */}
           <button
             onClick={handlePrev}
             disabled={isRtl ? activeIndex === services.length - 1 : activeIndex === 0}
@@ -162,7 +126,6 @@ export function ServiceCarousel() {
             <ArrowLeft className="h-4 w-4 rtl-flip" />
           </button>
 
-          {/* Right Arrow Button (Solid Red Circle) */}
           <button
             onClick={handleNext}
             disabled={isRtl ? activeIndex === 0 : activeIndex === services.length - 1}
@@ -186,6 +149,8 @@ export function ServiceCarousel() {
           {services.map((service, i) => {
             const offset = i - activeIndex;
             const isActive = offset === 0;
+            const isHovered = hoveredIndex === i && !isDragging;
+            const isFocused = isActive || isHovered;
             const absOffset = Math.abs(offset);
 
             const baseGap = 60;
@@ -209,24 +174,25 @@ export function ServiceCarousel() {
 
             translateX += dragOffset;
 
-            const rotateY = isActive ? 0 : offset < 0 ? (isRtl ? -16 : 16) : isRtl ? 16 : -16;
-            const scale = isActive ? 1 : 0.8;
-            const zIndex = 50 - absOffset * 10;
+            const rotateY = isFocused ? 0 : offset < 0 ? (isRtl ? -16 : 16) : isRtl ? 16 : -16;
+            const scale = isFocused ? 1 : 0.8;
+            const zIndex = isHovered && !isActive ? 60 : 50 - absOffset * 10;
 
             return (
               <div
                 key={service.id}
                 className={`service-card ${isActive ? "service-card--active" : ""} ${
-                  isDragging ? "service-card--dragging" : ""
-                }`}
+                  isHovered && !isActive ? "service-card--hovered" : ""
+                } ${isDragging ? "service-card--dragging" : ""}`}
                 style={{
                   transform: `translateX(${translateX}px) rotateY(${rotateY}deg) scale(${scale})`,
                   zIndex,
                   transition: isDragging ? "none" : "transform 0.5s ease-in-out",
                 }}
                 onClick={() => handleCardClick(i)}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex((prev) => (prev === i ? null : prev))}
               >
-                {/* Full-bleed image */}
                 <img
                   src={service.image}
                   alt={`${service.title} service`}
@@ -236,13 +202,9 @@ export function ServiceCarousel() {
                   className="service-card__image"
                 />
 
-                {/* Top gradient for title contrast */}
                 <div className="service-card__top-gradient" />
-
-                {/* Bottom gradient */}
                 <div className="service-card__bottom-gradient" />
 
-                {/* Top header: White TCS Logo, Divider & Service Title */}
                 <div className="service-card__top">
                   <div className="service-card__brand-header">
                     <img
@@ -256,15 +218,14 @@ export function ServiceCarousel() {
                   </div>
                 </div>
 
-                {/* Bottom content: Circular Arrow button */}
                 <div className="service-card__bottom">
                   <a
                     href={service.href}
                     aria-label={`${t("common:actions.explore")} ${service.title}`}
                     className={`service-card__arrow ${
-                      isActive ? "service-card__arrow--active" : "service-card__arrow--inactive"
+                      isFocused ? "service-card__arrow--active" : "service-card__arrow--inactive"
                     }`}
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                       if (hasMoved.current || !isActive) {
                         e.preventDefault();
                       }
