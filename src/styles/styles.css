@@ -586,3 +586,31 @@
     height: 40px;
   }
 }
+/* Custom scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--surface);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-hover);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
