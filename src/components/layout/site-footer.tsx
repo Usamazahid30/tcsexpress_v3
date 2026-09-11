@@ -111,7 +111,7 @@ export function SiteFooter() {
             {/* Newsletter */}
             <form
               onSubmit={handleSubscribe}
-              className="mt-6 flex items-center gap-2 rounded-full border border-border bg-background/60 p-1.5 transition-colors focus-within:border-primary"
+              className="mt-6 flex items-center rounded-full border border-border bg-background/60 p-1.5 transition-colors focus-within:border-primary"
             >
               <label htmlFor="newsletter" className="sr-only">
                 {t("site:footer.newsletter_placeholder")}
