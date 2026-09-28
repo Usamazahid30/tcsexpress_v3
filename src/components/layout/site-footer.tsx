@@ -52,7 +52,7 @@ export function SiteFooter() {
         { label: t("site:footer.track_shipment"), href: "#top", isRoute: false },
         { label: t("site:footer.rate_calc"), href: "#top", isRoute: false },
         { label: t("site:footer.locate_branch"), href: "#top", isRoute: false },
-        { label: t("site:footer.help_centre"), href: "#contact", isRoute: false },
+        { label: t("site:footer.help_centre"), href: "/contact", isRoute: true },
       ],
     },
   ];

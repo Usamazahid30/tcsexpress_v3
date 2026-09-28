@@ -48,7 +48,7 @@ export function SiteHeader() {
     { label: t("site:nav.home"), href: "/", isRoute: true },
     { label: t("site:nav.about"), href: "/about", isRoute: true },
     { label: t("site:nav.services"), href: "/#services", isRoute: false },
-    { label: t("site:nav.contact"), href: "/#contact", isRoute: false },
+    { label: t("site:nav.contact"), href: "/contact", isRoute: true },
   ];
 
   return (
