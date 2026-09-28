@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "@/components/layout";
 import { ThemeProvider } from "@/hooks/use-theme";
-import { HomePage, AboutPage } from "@/pages";
+import { HomePage, AboutPage, EcomSolutionPage } from "@/pages";
 
 export default function App() {
   return (
@@ -11,6 +11,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/ecom-solution" element={<EcomSolutionPage />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>

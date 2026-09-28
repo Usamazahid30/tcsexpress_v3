@@ -7,7 +7,7 @@ const rawServices: ServiceItem[] = [
   { id: "air", image: "/air.jpg", href: "#services" },
   { id: "logistics", image: "/logistics.jpg", href: "#services" },
   { id: "sentiments", image: "/sentiments.jpg", href: "#services" },
-  { id: "ecom", image: "/ecom.jpg", href: "#services" },
+  { id: "ecom", image: "/ecom.jpg", href: "/ecom-solution" },
   { id: "international", image: "/International.jpg", href: "#services" },
   { id: "studio", image: "/studio.jpg", href: "#services" },
   { id: "domestic", image: "/red.jpg", href: "#services" },
