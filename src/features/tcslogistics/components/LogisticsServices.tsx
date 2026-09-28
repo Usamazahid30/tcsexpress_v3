@@ -120,7 +120,7 @@ export function LogisticsServices() {
             >
               <Link
                 to={service.href}
-                className="group flex min-h-[150px] items-center gap-5 rounded-2xl border border-border/60 bg-background p-5 shadow-(--shadow-soft) transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-(--shadow-elevated) sm:p-6"
+                className="group flex min-h-37.5 items-center gap-5 rounded-2xl border border-border/60 bg-background p-5 shadow-(--shadow-soft) transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-(--shadow-elevated) sm:p-6"
               >
                 <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl bg-surface p-4 sm:h-28 sm:w-28">
                   <img
