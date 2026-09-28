@@ -1,13 +1,6 @@
 import { motion } from "motion/react";
 import { Reveal } from "@/components/common";
-import {
-  Heart,
-  Users,
-  Scale,
-  ShieldCheck,
-  HandHeart,
-  TrendingUp,
-} from "lucide-react";
+import { Heart, Users, Scale, ShieldCheck, HandHeart, TrendingUp } from "lucide-react";
 
 const coreValues = [
   {
@@ -69,32 +62,29 @@ export function MissionVision() {
           <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5">
             <Reveal delay={0.05}>
               <p className="text-sm sm:text-base leading-[1.8] text-muted-foreground">
-                Our most precious asset – the term 'TCS KARDO' has been gifted
-                to us by the people of Pakistan as an expression of their
-                affection and TRUST.
+                Our most precious asset – the term 'TCS KARDO' has been gifted to us by the people
+                of Pakistan as an expression of their affection and TRUST.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-sm sm:text-base leading-[1.8] text-muted-foreground">
-                It is by delivering on this trust every single day, come rain or
-                shine, over the past four decades that we have become the
-                country's logistics backbone delivering an array of services to
-                businesses and consumers alike.
+                It is by delivering on this trust every single day, come rain or shine, over the
+                shine, over the past four decades that we have become the country's logistics
+                backbone delivering an array of services to businesses and consumers alike.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="text-sm sm:text-base leading-[1.8] text-muted-foreground">
-                We now pledge to add greater value to our services through a
-                blend of passion and new technologies aimed at enhancing
-                productivity of our clients, whilst simplifying and enriching
+                We now pledge to add greater value to our services through a blend of passion and
+                new technologies aimed at enhancing productivity of our clients, whilst simplifying
                 everyday lives of our consumers.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-sm sm:text-base leading-[1.8] text-muted-foreground">
-                Additionally, we will extend our Air and Ground Logistics
-                Services beyond borders opening new trade routes shaped by the
-                emerging regional opportunities, to the benefit of Pakistan.
+                Additionally, we will extend our Air and Ground Logistics Services beyond borders
+                opening new trade routes shaped by the emerging regional opportunities, to the
+                benefit of Pakistan.
               </p>
             </Reveal>
           </div>

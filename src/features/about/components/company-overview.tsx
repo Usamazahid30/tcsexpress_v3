@@ -96,7 +96,9 @@ export function CompanyOverview() {
                   <p className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground">
                     {stat.value}
                   </p>
-                  <p className="text-xs sm:text-sm font-medium text-muted-foreground">{stat.label}</p>
+                  <p className="text-xs sm:text-sm font-medium text-muted-foreground">
+                    {stat.label}
+                  </p>
                 </motion.div>
               );
             })}
