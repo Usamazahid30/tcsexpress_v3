@@ -8,64 +8,55 @@ const services = [
     id: "domestic",
     image: "/red.jpg",
     title: "TCS Domestic",
-    summary:
-      "Pakistan's largest and most trusted domestic courier network, delivering millions of shipments across 1,000+ cities every day with speed and reliability.",
+    summary: "",
   },
   {
     id: "international",
     image: "/International.jpg",
     title: "TCS International",
-    summary:
-      "Expanding Pakistan's reach beyond borders with reliable cross-border shipping solutions to over 200 countries worldwide.",
+    summary: "",
   },
   {
     id: "air",
     image: "/air.jpg",
     title: "TCS Air",
-    summary:
-      "Time-critical deliveries powered by our dedicated air cargo operations, offering same-day and next-day services for urgent shipments.",
+    summary: "",
   },
   {
     id: "logistics",
     image: "/logistics.jpg",
     title: "TCS Logistics",
-    summary:
-      "End-to-end supply chain and logistics solutions for enterprises of all scales, from warehousing to freight management.",
+    summary: "",
   },
   {
     id: "ecom",
     image: "/ecom.jpg",
     title: "TCS Ecommerce",
-    summary:
-      "Purpose-built fulfillment solutions for Pakistan's e-commerce ecosystem, from cash-on-delivery to automated reverse logistics.",
+    summary: "",
   },
   {
     id: "sentiments",
     image: "/sentiments.jpg",
     title: "TCS Sentiments",
-    summary:
-      "Express your feelings across distances with curated gifts, fresh flowers, cakes, and personalized hampers delivered nationwide.",
+    summary: "",
   },
   {
     id: "studio",
     image: "/studio.jpg",
     title: "TCS Studio",
-    summary:
-      "Creative and branding solutions powered by TCS's in-house design team, delivering packaging design and visual brand collateral.",
+    summary: "",
   },
   {
     id: "student",
     image: "/student.jpg",
     title: "TCS Student",
-    summary:
-      "Tailored shipping solutions for Pakistan's student community with affordable rates and dedicated campus support.",
+    summary: "",
   },
   {
     id: "travel",
     image: "/travel.jpg",
     title: "TCS Travel",
-    summary:
-      "Comprehensive travel and tourism services making travel effortless, from visa processing to custom holiday tour packages.",
+    summary: "",
   },
 ];
 
