@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Check, Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Reveal, RippleButton } from "@/components/common";
 
 const socials = [
@@ -29,29 +30,29 @@ export function SiteFooter() {
     {
       title: t("site:footer.company"),
       links: [
-        { label: t("site:footer.about_us"), href: "#about" },
-        { label: t("site:footer.mission"), href: "#about" },
-        { label: t("site:footer.leadership"), href: "#about" },
-        { label: t("site:footer.careers"), href: "#about" },
+        { label: t("site:footer.about_us"), href: "/about", isRoute: true },
+        { label: t("site:footer.mission"), href: "/about", isRoute: true },
+        { label: t("site:footer.leadership"), href: "#about", isRoute: false },
+        { label: t("site:footer.careers"), href: "#about", isRoute: false },
       ],
     },
     {
       title: t("site:footer.products_services"),
       links: [
-        { label: t("site:footer.domestic"), href: "#services" },
-        { label: t("site:footer.international_svc"), href: "#services" },
-        { label: t("site:footer.express"), href: "#services" },
-        { label: t("site:footer.logistics_svc"), href: "#services" },
-        { label: t("site:footer.ecom_svc"), href: "#services" },
+        { label: t("site:footer.domestic"), href: "#services", isRoute: false },
+        { label: t("site:footer.international_svc"), href: "#services", isRoute: false },
+        { label: t("site:footer.express"), href: "#services", isRoute: false },
+        { label: t("site:footer.logistics_svc"), href: "#services", isRoute: false },
+        { label: t("site:footer.ecom_svc"), href: "#services", isRoute: false },
       ],
     },
     {
       title: t("site:footer.resources"),
       links: [
-        { label: t("site:footer.track_shipment"), href: "#top" },
-        { label: t("site:footer.rate_calc"), href: "#top" },
-        { label: t("site:footer.locate_branch"), href: "#top" },
-        { label: t("site:footer.help_centre"), href: "#contact" },
+        { label: t("site:footer.track_shipment"), href: "#top", isRoute: false },
+        { label: t("site:footer.rate_calc"), href: "#top", isRoute: false },
+        { label: t("site:footer.locate_branch"), href: "#top", isRoute: false },
+        { label: t("site:footer.help_centre"), href: "#contact", isRoute: false },
       ],
     },
   ];
@@ -82,12 +83,21 @@ export function SiteFooter() {
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="link-underline text-sm text-muted-foreground transition-colors hover:text-primary"
-                    >
-                      {link.label}
-                    </a>
+                    {link.isRoute ? (
+                      <Link
+                        to={link.href}
+                        className="link-underline text-sm text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="link-underline text-sm text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -95,7 +105,7 @@ export function SiteFooter() {
           </Reveal>
         ))}
 
-        {/* Head Office + Newsletter */}
+        {/* Newsletter */}
         <Reveal delay={0.32}>
           <div>
             <h3 className="text-primary text-sm font-semibold tracking-[0.12em] uppercase">

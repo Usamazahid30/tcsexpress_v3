@@ -10,7 +10,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-dvh flex-col justify-between bg-background">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 overflow-x-clip min-w-0">{children}</main>
       <SiteFooter />
     </div>
   );

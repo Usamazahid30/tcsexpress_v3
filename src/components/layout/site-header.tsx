@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Globe, Menu, Moon, Search, Sun, User, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { RippleButton } from "@/components/common";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -44,10 +45,10 @@ export function SiteHeader() {
   const currentLang = i18n.language || "en";
 
   const links = [
-    { label: t("site:nav.home"), href: "#top" },
-    { label: t("site:nav.about"), href: "#about" },
-    { label: t("site:nav.services"), href: "#services" },
-    { label: t("site:nav.contact"), href: "#contact" },
+    { label: t("site:nav.home"), href: "/", isRoute: true },
+    { label: t("site:nav.about"), href: "/about", isRoute: true },
+    { label: t("site:nav.services"), href: "/#services", isRoute: false },
+    { label: t("site:nav.contact"), href: "/#contact", isRoute: false },
   ];
 
   return (
@@ -62,8 +63,8 @@ export function SiteHeader() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex min-w-0 items-center gap-3"
             aria-label={t("common:nav.tcs_home")}
           >
@@ -72,18 +73,28 @@ export function SiteHeader() {
               alt="TCS"
               className={`w-auto transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
             />
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="link-underline text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="link-underline text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="link-underline text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="hidden items-center gap-2.5 lg:flex">
@@ -182,19 +193,36 @@ export function SiteHeader() {
               className="overflow-hidden border-t border-border bg-background lg:hidden"
             >
               <div className="container-page flex flex-col gap-1 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
-                {links.map((link, i) => (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i }}
-                    className="rounded-2xl px-3 py-3 text-base font-medium text-foreground hover:bg-muted"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
+                {links.map((link, i) =>
+                  link.isRoute ? (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * i }}
+                    >
+                      <Link
+                        to={link.href}
+                        onClick={() => setOpen(false)}
+                        className="block rounded-2xl px-3 py-3 text-base font-medium text-foreground hover:bg-muted"
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * i }}
+                      className="rounded-2xl px-3 py-3 text-base font-medium text-foreground hover:bg-muted"
+                    >
+                      {link.label}
+                    </motion.a>
+                  ),
+                )}
 
                 {/* Mobile Language & Action Row */}
                 <div className="mt-4 flex flex-col gap-3">
