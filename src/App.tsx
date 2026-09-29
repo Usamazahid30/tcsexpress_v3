@@ -8,6 +8,7 @@ import {
   ServicesPage,
   EcomSolutionPage,
   LogisticsPage,
+  InternationalPage,
 } from "@/pages";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/services/:serviceId" element={<ServicesPage />} />
             <Route path="/ecom-solution" element={<EcomSolutionPage />} />
             <Route path="/tcslogistics" element={<LogisticsPage />} />
+            <Route path="/international" element={<InternationalPage />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>
