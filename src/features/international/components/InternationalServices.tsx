@@ -69,9 +69,7 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
     offset: ["start end", "end start"],
   });
 
-  // =========================
   // SAME ANIMATION
-  // =========================
 
   const cardY = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [70, 0, 0, -60]);
 
@@ -96,8 +94,8 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
       ref={ref}
       className={
         isMultipleDescription
-          ? "relative min-h-[950px] lg:min-h-[900px]"
-          : "relative h-[72vh] min-h-[500px] sm:h-[75vh] sm:min-h-[540px] lg:h-[78vh] lg:min-h-[560px]"
+          ? "relative min-h-237.5 lg:min-h-225"
+          : "relative h-[72vh] min-h-125 sm:h-[75vh] sm:min-h-135 lg:h-[78vh] lg:min-h-140"
       }
     >
       <div
@@ -115,8 +113,8 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
             <div
               className={
                 isMultipleDescription
-                  ? "grid min-h-[900px] grid-cols-1 lg:min-h-[850px] lg:grid-cols-2"
-                  : "grid min-h-[500px] grid-cols-1 lg:min-h-[500px] lg:grid-cols-2"
+                  ? "grid min-h-225 grid-cols-1 lg:min-h-212.5 lg:grid-cols-2"
+                  : "grid min-h-125 grid-cols-1 lg:min-h-125 lg:grid-cols-2"
               }
             >
               <div
@@ -124,12 +122,12 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
               >
                 <motion.div
                   style={{ x: imageX, y: imageY, scale: imageScale }}
-                  className="flex min-h-[250px] h-full items-center justify-center p-5 sm:min-h-[300px] sm:p-7 lg:min-h-[500px] lg:p-10"
+                  className="flex min-h-62.5 h-full items-center justify-center p-5 sm:min-h-75 sm:p-7 lg:min-h-125 lg:p-10"
                 >
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="max-h-[230px] w-full rounded-xl object-contain sm:max-h-[300px] lg:max-h-[400px] lg:rounded-2xl"
+                    className="max-h-57.5 w-full rounded-xl object-contain sm:max-h-75 lg:max-h-100 lg:rounded-2xl"
                   />
                 </motion.div>
               </div>
@@ -138,12 +136,12 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
                 style={{ x: textX, y: textY, opacity: textOpacity }}
                 className={`flex flex-col justify-center p-6 sm:p-8 lg:p-12 xl:p-14 ${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}
               >
-                <div className="mb-4 flex items-center gap-3 sm:mb-5">
+                {/* <div className="mb-4 flex items-center gap-3 sm:mb-5">
                   <span className="h-7 w-1 rounded-full bg-primary sm:h-8" aria-hidden="true" />
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary sm:text-sm">
                     International
                   </p>
-                </div>
+                </div> */}
 
                 <h3 className="text-2xl font-semi-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl">
                   {service.title}
@@ -173,9 +171,9 @@ function ScrollService({ service, index }: { service: (typeof services)[number];
               </motion.div>
             </div>
 
-            <div className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg sm:right-5 sm:top-5 sm:h-10 sm:w-10 sm:text-sm">
+            {/* <div className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground shadow-lg sm:right-5 sm:top-5 sm:h-10 sm:w-10 sm:text-sm">
               {String(index + 1).padStart(2, "0")}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
