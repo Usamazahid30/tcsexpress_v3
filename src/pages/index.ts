@@ -4,3 +4,4 @@ export { ContactPage } from "./contact-page";
 export { ServicesPage } from "./services-page";
 export { EcomSolutionPage } from "./ecom-solution-page";
 export { LogisticsPage } from "./logistics-page";
+export { InternationalPage } from "./international-page";
