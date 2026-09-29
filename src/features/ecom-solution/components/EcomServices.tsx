@@ -51,14 +51,14 @@ export function EcomServices() {
               className="grid overflow-hidden rounded-2xl bg-surface shadow-(--shadow-soft) lg:grid-cols-2"
             >
               <div
-                className={`flex min-h-[260px] items-center justify-center p-4 sm:min-h-[320px] sm:p-6 ${
+                className={`flex min-h-65 items-center justify-center p-4 sm:min-h-80 sm:p-6 ${
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="max-h-[360px] w-full rounded-[5px] object-contain transition-transform duration-500 hover:scale-[1.02]"
+                  className="max-h-90 w-full rounded-[5px] object-contain transition-transform duration-500 hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>

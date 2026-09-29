@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/:serviceId" element={<ServicesPage />} />
             <Route path="/ecom-solution" element={<EcomSolutionPage />} />
-            <Route path="/tcslogistics" element={<LogisticsPage />} />
+            <Route path="/logistics" element={<LogisticsPage />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>

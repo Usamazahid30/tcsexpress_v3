@@ -8,6 +8,7 @@ export interface ServiceItem {
   image: string;
   href: string;
   title?: string;
+  external?: boolean;
 }
 
 export interface TrackingStatus {

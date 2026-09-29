@@ -5,11 +5,16 @@ import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
   { id: "air", image: "/air.jpg", href: "#services" },
-  { id: "logistics", image: "/logistics.jpg", href: "/tcslogistics" },
-  { id: "sentiments", image: "/sentiments.jpg", href: "#services" },
+  { id: "logistics", image: "/logistics.jpg", href: "/logistics" },
+  {
+    id: "sentiments",
+    image: "/sentiments.jpg",
+    href: "https://sentimentsexpress.com/",
+    external: true,
+  },
   { id: "ecom", image: "/ecom.jpg", href: "/ecom-solution" },
   { id: "international", image: "/International.jpg", href: "#services" },
-  { id: "studio", image: "/studio.jpg", href: "#services" },
+  { id: "studio", image: "/studio.jpg", href: "https://studiobytcs.pk/", external: true },
   { id: "domestic", image: "/red.jpg", href: "#services" },
   { id: "student", image: "/student.jpg", href: "#services" },
   { id: "travel", image: "/travel.jpg", href: "#services" },
@@ -221,6 +226,8 @@ export function ServiceCarousel() {
                 <div className="service-card__bottom">
                   <a
                     href={service.href}
+                    target={service.external ? "_blank" : undefined}
+                    rel={service.external ? "noopener noreferrer" : undefined}
                     aria-label={`${t("common:actions.explore")} ${service.title}`}
                     className={`service-card__arrow ${
                       isFocused ? "service-card__arrow--active" : "service-card__arrow--inactive"
