@@ -8,55 +8,64 @@ const services = [
     id: "domestic",
     image: "/red.jpg",
     title: "TCS Domestic",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "international",
     image: "/International.jpg",
     title: "TCS International",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "air",
     image: "/air.jpg",
     title: "TCS Air",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "logistics",
     image: "/logistics.jpg",
     title: "TCS Logistics",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "ecom",
     image: "/ecom.jpg",
     title: "TCS Ecommerce",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "sentiments",
     image: "/sentiments.jpg",
     title: "TCS Sentiments",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "studio",
     image: "/studio.jpg",
     title: "TCS Studio",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "student",
     image: "/student.jpg",
     title: "TCS Student",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "travel",
     image: "/travel.jpg",
     title: "TCS Travel",
-    summary: "",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
 ];
 
