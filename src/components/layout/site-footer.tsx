@@ -32,7 +32,7 @@ export function SiteFooter() {
       links: [
         { label: t("site:footer.about_us"), href: "/about", isRoute: true },
         { label: t("site:footer.mission"), href: "/about", isRoute: true },
-        { label: t("site:footer.leadership"), href: "#about", isRoute: false },
+        { label: t("site:footer.leadership"), href: "/leadership", isRoute: true },
         { label: t("site:footer.careers"), href: "#about", isRoute: false },
       ],
     },

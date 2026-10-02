@@ -5,3 +5,7 @@ export { ServicesPage } from "./services-page";
 export { EcomSolutionPage } from "./ecom-solution-page";
 export { LogisticsPage } from "./logistics-page";
 export { InternationalPage } from "./international-page";
+export { LeadershipPage } from "./leadership-page";
+export { FounderPage } from "./founder-page";
+export { SairaPage } from "./saira-page";
+export { HassanRazaPage } from "./hassan-raza-page";

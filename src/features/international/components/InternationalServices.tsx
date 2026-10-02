@@ -18,7 +18,7 @@ const services = [
     title: "US Passport Renewal",
     description:
       "TCS provides a secure and convenient way to renew US passport. The US citizens can either visit a TCS Express Centre to hand over their passports or arrange for a pickup of their documents to be submitted to the nearest US embassy on their behalf. Selected TCS Express Centres are open twenty-four hours, which makes it a more flexible and time-saving option.",
-    image: "/InternationalExpress/uspassport.jpg",
+    image: "/international-banner/uspassport.jpg",
   },
   {
     title: "Student Express",

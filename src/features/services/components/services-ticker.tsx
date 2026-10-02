@@ -98,15 +98,15 @@ function TickerRow({ items, direction = -1, duration = 35 }: TickerRowProps) {
 
 export function ServicesTicker() {
   const services = [
-    { id: "domestic", image: "/red.jpg", title: "TCS Domestic" },
-    { id: "international", image: "/International.jpg", title: "TCS International" },
-    { id: "air", image: "/air.jpg", title: "TCS Air" },
-    { id: "logistics", image: "/logistics.jpg", title: "TCS Logistics" },
-    { id: "ecom", image: "/ecom.jpg", title: "TCS Ecommerce" },
-    { id: "sentiments", image: "/sentiments.jpg", title: "TCS Sentiments" },
-    { id: "studio", image: "/studio.jpg", title: "TCS Studio" },
-    { id: "student", image: "/student.jpg", title: "TCS Student" },
-    { id: "travel", image: "/travel.jpg", title: "TCS Travel" },
+    { id: "domestic", image: "Services/red.jpg", title: "TCS Domestic" },
+    { id: "international", image: "Services/International.jpg", title: "TCS International" },
+    { id: "air", image: "Services/air.jpg", title: "TCS Air" },
+    { id: "logistics", image: "Services/logistics.jpg", title: "TCS Logistics" },
+    { id: "ecom", image: "Services/ecom.jpg", title: "TCS Ecommerce" },
+    { id: "sentiments", image: "Services/sentiments.jpg", title: "TCS Sentiments" },
+    { id: "studio", image: "Services/studio.jpg", title: "TCS Studio" },
+    { id: "student", image: "Services/student.jpg", title: "TCS Student" },
+    { id: "travel", image: "Services/travel.jpg", title: "TCS Travel" },
   ];
 
   // Split services into two rows for visual variety
