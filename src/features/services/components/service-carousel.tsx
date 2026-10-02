@@ -4,20 +4,20 @@ import { useTranslation } from "react-i18next";
 import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
-  { id: "air", image: "/air.jpg", href: "#services" },
-  { id: "logistics", image: "/logistics.jpg", href: "/logistics" },
+  { id: "air", image: "Services/air.jpg", href: "#services" },
+  { id: "logistics", image: "Services/logistics.jpg", href: "/logistics" },
   {
     id: "sentiments",
-    image: "/sentiments.jpg",
+    image: "Services/sentiments.jpg",
     href: "https://sentimentsexpress.com/",
     external: true,
   },
-  { id: "ecom", image: "/ecom.jpg", href: "/ecom-solution" },
-  { id: "international", image: "/International.jpg", href: "/international" },
-  { id: "studio", image: "/studio.jpg", href: "https://studiobytcs.pk/", external: true },
-  { id: "domestic", image: "/red.jpg", href: "#services" },
-  { id: "student", image: "/student.jpg", href: "#services" },
-  { id: "travel", image: "/travel.jpg", href: "#services" },
+  { id: "ecom", image: "Services/ecom.jpg", href: "/ecom-solution" },
+  { id: "international", image: "Services/International.jpg", href: "/international" },
+  { id: "studio", image: "Services/studio.jpg", href: "https://studiobytcs.pk/", external: true },
+  { id: "domestic", image: "Services/red.jpg", href: "#services" },
+  { id: "student", image: "Services/student.jpg", href: "#services" },
+  { id: "travel", image: "Services/travel.jpg", href: "#services" },
 ];
 
 export function ServiceCarousel() {

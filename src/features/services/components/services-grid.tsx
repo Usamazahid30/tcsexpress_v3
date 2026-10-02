@@ -6,63 +6,63 @@ import { Link } from "react-router-dom";
 const services = [
   {
     id: "domestic",
-    image: "/red.jpg",
+    image: "Services/red.jpg",
     title: "TCS Domestic",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "international",
-    image: "/International.jpg",
+    image: "Services/International.jpg",
     title: "TCS International",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "air",
-    image: "/air.jpg",
+    image: "Services/air.jpg",
     title: "TCS Air",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "logistics",
-    image: "/logistics.jpg",
+    image: "Services/logistics.jpg",
     title: "TCS Logistics",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "ecom",
-    image: "/ecom.jpg",
+    image: "Services/ecom.jpg",
     title: "TCS Ecommerce",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "sentiments",
-    image: "/sentiments.jpg",
+    image: "Services/sentiments.jpg",
     title: "TCS Sentiments",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "studio",
-    image: "/studio.jpg",
+    image: "Services/studio.jpg",
     title: "TCS Studio",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "student",
-    image: "/student.jpg",
+    image: "Services/student.jpg",
     title: "TCS Student",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
   },
   {
     id: "travel",
-    image: "/travel.jpg",
+    image: "Services/travel.jpg",
     title: "TCS Travel",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
