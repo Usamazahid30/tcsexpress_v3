@@ -44,7 +44,7 @@ export function HassanRazaPage() {
           1. KEYNOTE HERO SECTION (Asymmetrical Card + Portrait)
       ───────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-[#fdf9f3] dark:bg-[#0c0d12] transition-colors duration-300">
-        <div className="absolute top-0 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px] dark:bg-primary/10 pointer-events-none" />
+        <div className="absolute top-0 right-1/4 -z-10 h-125 w-125 rounded-full bg-primary/5 blur-[120px] dark:bg-primary/10 pointer-events-none" />
         <div className="absolute bottom-0 left-10 -z-10 h-72 w-72 rounded-full bg-amber-500/5 blur-[90px] dark:bg-amber-500/10 pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-16 sm:pb-24">
@@ -73,7 +73,7 @@ export function HassanRazaPage() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 relative"
             >
-              <div className="relative overflow-hidden rounded-[2rem] sm:rounded-tl-[2.25rem] sm:rounded-bl-[2.25rem] sm:rounded-tr-[5rem] sm:rounded-br-[2.25rem] bg-[#65071a] bg-gradient-to-br from-[#73081e] via-[#65071a] to-[#4c0513] dark:from-[#590617] dark:via-[#470512] dark:to-[#33030d] p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-12px_rgba(115,8,30,0.45)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10">
+              <div className="relative overflow-hidden rounded-[2rem] sm:rounded-tl-[2.25rem] sm:rounded-bl-[2.25rem] sm:rounded-tr-[5rem] sm:rounded-br-[2.25rem] bg-[#65071a] bg-linear-to-br from-[#73081e] via-[#65071a] to-[#4c0513] dark:from-[#590617] dark:via-[#470512] dark:to-[#33030d] p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_-12px_rgba(115,8,30,0.45)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10">
                 {/* Top Badge + Neon Squiggle */}
                 <div className="flex items-center gap-4">
                   <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#dfff00] text-black font-extrabold text-xs uppercase tracking-wider shadow-sm">
@@ -140,8 +140,8 @@ export function HassanRazaPage() {
               transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 flex flex-col items-center justify-center relative"
             >
-              <div className="relative w-full max-w-[420px]">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 via-amber-500/10 to-transparent blur-2xl dark:from-primary/20 dark:via-amber-500/15" />
+              <div className="relative w-full max-w-105">
+                <div className="absolute inset-0 rounded-full bg-linear-to-tr from-primary/10 via-amber-500/10 to-transparent blur-2xl dark:from-primary/20 dark:via-amber-500/15" />
 
                 <div className="relative overflow-hidden rounded-3xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-card/40 backdrop-blur-sm shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)]">
                   <img
@@ -150,7 +150,7 @@ export function HassanRazaPage() {
                     className="w-full h-auto object-cover object-top filter brightness-[1.02] contrast-[1.03] transition-transform duration-700 hover:scale-102"
                   />
 
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-5 text-white">
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-5 text-white">
                     <span className="text-lg font-black tracking-wide text-[#dfff00]">
                       Hassan Raza Leghari
                     </span>
@@ -205,9 +205,7 @@ export function HassanRazaPage() {
                 <span className="mt-2 text-sm sm:text-base font-bold text-foreground">
                   {stat.label}
                 </span>
-                <span className="mt-1 text-xs text-muted-foreground max-w-[200px]">
-                  {stat.sublabel}
-                </span>
+                <span className="mt-1 text-xs text-muted-foreground max-w-50">{stat.sublabel}</span>
               </motion.div>
             ))}
           </div>
@@ -294,7 +292,7 @@ export function HassanRazaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-[#B8141A] dark:from-[#900E13] dark:to-[#6E070B] p-8 sm:p-10 text-white shadow-xl"
+                className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary to-[#B8141A] dark:from-[#900E13] dark:to-[#6E070B] p-8 sm:p-10 text-white shadow-xl"
               >
                 <Quote className="h-12 w-12 text-white/30 mb-4" />
 
@@ -350,7 +348,7 @@ export function HassanRazaPage() {
           </div>
 
           <div className="relative">
-            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/10" />
+            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-0.5 bg-linear-to-b from-primary via-primary/50 to-primary/10" />
 
             <div className="space-y-8 sm:space-y-12">
               {[
