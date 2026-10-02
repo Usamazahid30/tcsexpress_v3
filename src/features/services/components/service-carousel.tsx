@@ -15,7 +15,7 @@ const rawServices: ServiceItem[] = [
   { id: "ecom", image: "Services/ecom.jpg", href: "/ecom-solution" },
   { id: "international", image: "Services/International.jpg", href: "/international" },
   { id: "studio", image: "Services/studio.jpg", href: "https://studiobytcs.pk/", external: true },
-  { id: "domestic", image: "Services/red.jpg", href: "#services" },
+  { id: "domestic", image: "Services/domestic.jpg", href: "#services" },
   { id: "student", image: "Services/student.jpg", href: "#services" },
   { id: "travel", image: "Services/travel.jpg", href: "#services" },
 ];
@@ -111,6 +111,14 @@ export function ServiceCarousel() {
     if (index !== activeIndex) {
       setActiveIndex(index);
     }
+    // Second click / click on active card → navigate
+    const service = services[index];
+
+    if (service.external) {
+      window.open(service.href, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = service.href;
+    }
   };
 
   return (
@@ -193,6 +201,7 @@ export function ServiceCarousel() {
                   transform: `translateX(${translateX}px) rotateY(${rotateY}deg) scale(${scale})`,
                   zIndex,
                   transition: isDragging ? "none" : "transform 0.5s ease-in-out",
+                  cursor: isDragging ? "grabbing" : "pointer",
                 }}
                 onClick={() => handleCardClick(i)}
                 onMouseEnter={() => setHoveredIndex(i)}
@@ -224,7 +233,7 @@ export function ServiceCarousel() {
                 </div>
 
                 <div className="service-card__bottom">
-                  <a
+                  {/* <a
                     href={service.href}
                     target={service.external ? "_blank" : undefined}
                     rel={service.external ? "noopener noreferrer" : undefined}
@@ -239,7 +248,15 @@ export function ServiceCarousel() {
                     }}
                   >
                     <ArrowRight className="h-4 w-4 rtl-flip" />
-                  </a>
+                  </a> */}
+                  <div
+                    aria-hidden="true"
+                    className={`service-card__arrow ${
+                      isFocused ? "service-card__arrow--active" : "service-card__arrow--inactive"
+                    }`}
+                  >
+                    <ArrowRight className="h-4 w-4 rtl-flip" />
+                  </div>
                 </div>
               </div>
             );

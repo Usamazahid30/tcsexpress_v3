@@ -309,9 +309,6 @@ export function HassanRazaPage() {
                     </p>
                     <p className="text-xs text-white/80 font-medium">CEO, TCS Private Limited</p>
                   </div>
-                  <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center font-black text-xs text-white">
-                    TCS
-                  </div>
                 </div>
 
                 <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full bg-white/10 blur-xl pointer-events-none" />
