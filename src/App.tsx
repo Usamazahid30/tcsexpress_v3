@@ -37,7 +37,6 @@ export default function App() {
               {/* Leader profile routes */}
               <Route path="/founder" element={<FounderPage />} />
               <Route path="/saira-awan-malik" element={<SairaPage />} />
-              <Route path="/HassanRaza" element={<HassanRazaPage />} />
               <Route path="/hassan-raza" element={<HassanRazaPage />} />
               <Route path="/qasim-awan" element={<LeadershipPage />} />
               <Route path="/saadia-awan" element={<LeadershipPage />} />
