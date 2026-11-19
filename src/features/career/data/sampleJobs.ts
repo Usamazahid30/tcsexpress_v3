@@ -16,7 +16,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Administration & Projects",
     jobType: "Full-time",
     location: "Karachi, Pakistan",
-    deadline: "15 Dec 2025",
+    deadline: "15 Dec 2026",
     iconKey: "code",
     overview:
       "We are looking for a Project Engineer to support the planning, execution and monitoring of infrastructure and facility projects across TCS.",
@@ -38,7 +38,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Information Technology",
     jobType: "Full-time",
     location: "Karachi, Pakistan",
-    deadline: "22 Dec 2025",
+    deadline: "22 Dec 2026",
     iconKey: "monitor",
     overview:
       "Join our digital engineering team to build responsive, high-availability web applications and customer-facing logistics platforms across Pakistan.",
@@ -59,7 +59,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Express Operations",
     jobType: "Full-time",
     location: "Lahore, Pakistan",
-    deadline: "18 Dec 2025",
+    deadline: "18 Dec 2026",
     iconKey: "package",
     overview:
       "Be the front line of TCS reliability by ensuring safe, timely pickup and delivery of shipments across assigned urban routes.",
@@ -81,7 +81,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Commercial & Enterprise",
     jobType: "Full-time",
     location: "Islamabad, Pakistan",
-    deadline: "28 Dec 2025",
+    deadline: "28 Dec 2026",
     iconKey: "user",
     overview:
       "Drive strategic enterprise relationships and expand technology-enabled logistics and infrastructure solutions for key corporate accounts.",
@@ -103,7 +103,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Commercial & Enterprise",
     jobType: "Full-time",
     location: "Karachi, Pakistan",
-    deadline: "30 Dec 2025",
+    deadline: "30 Dec 2026",
     iconKey: "user",
     overview:
       "Acquire high-value commercial accounts and grow recurring shipment volume across retail, e-commerce, and corporate sectors.",
@@ -125,7 +125,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Information Technology",
     jobType: "Full-time",
     location: "Karachi, Pakistan",
-    deadline: "20 Dec 2025",
+    deadline: "20 Dec 2026",
     iconKey: "network",
     overview:
       "Maintain resilient enterprise network connectivity across corporate offices, sorting hubs, and regional branches.",
@@ -146,7 +146,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Supply Chain & Procurement",
     jobType: "Full-time",
     location: "Karachi, Pakistan",
-    deadline: "24 Dec 2025",
+    deadline: "24 Dec 2026",
     iconKey: "layers",
     overview:
       "Lead strategic sourcing, vendor evaluation, and cost-effective procurement of operational supplies, equipment, and services.",
@@ -168,7 +168,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Fleet & Linehaul",
     jobType: "Full-time",
     location: "Multan, Pakistan",
-    deadline: "19 Dec 2025",
+    deadline: "19 Dec 2026",
     iconKey: "truck",
     overview:
       "Operate heavy and commercial linehaul vehicles safely along intercity corridors to keep national hub transfers moving on schedule.",
@@ -190,7 +190,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Express Operations",
     jobType: "Full-time",
     location: "Faisalabad, Pakistan",
-    deadline: "26 Dec 2025",
+    deadline: "26 Dec 2026",
     iconKey: "gift",
     overview:
       "Deliver special-occasion parcels and gift orders with extra care, punctuality, and warmth for customers across the city.",
@@ -234,7 +234,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
     department: "Express Operations",
     jobType: "Full-time",
     location: "Rawalpindi, Pakistan",
-    deadline: "29 Dec 2025",
+    deadline: "29 Dec 2026",
     iconKey: "package",
     overview:
       "Oversee shift sortation, scan accuracy, and timely dispatch waves at a regional TCS hub.",

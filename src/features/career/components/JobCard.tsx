@@ -18,7 +18,7 @@ interface JobCardProps {
 }
 
 function renderJobIcon(iconKey: JobIconKey) {
-  const iconClass = "h-6 w-6 text-[#D90416] stroke-[1.75]";
+  const iconClass = "h-6 w-6 text-primary stroke-[1.75]";
   switch (iconKey) {
     case "code":
       return <Code2 className={iconClass} aria-hidden="true" />;
@@ -41,15 +41,15 @@ function renderJobIcon(iconKey: JobIconKey) {
 
 export const JobCard: React.FC<JobCardProps> = ({ job, onSelectJob }) => {
   return (
-    <article className="group relative flex min-h-[116px] flex-col justify-between rounded-xl border border-[#F1E6DA] bg-white p-4 shadow-[0_2px_10px_rgba(24,24,27,0.03)] transition duration-200 hover:-translate-y-0.5 hover:border-[#F5C2C7] hover:shadow-[0_8px_20px_rgba(217,4,22,0.08)] sm:p-5">
+    <article className="group relative flex min-h-[116px] flex-col justify-between rounded-xl border border-border bg-card p-4 shadow-[0px_2px_2px_rgba(0,0,0,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-elevated sm:p-5">
       <div className="flex items-start gap-3.5 pr-9">
         <div className="mt-0.5 shrink-0">{renderJobIcon(job.iconKey)}</div>
         <div className="min-w-0">
-          <h3 className="text-[15px] font-bold leading-snug text-[#111827] sm:text-base">
+          <h3 className="text-[15px] font-bold leading-snug text-foreground sm:text-base">
             {job.title}
           </h3>
           {job.subtitle && (
-            <p className="mt-0.5 text-xs font-normal text-[#4B5563]">{job.subtitle}</p>
+            <p className="mt-0.5 text-xs font-normal text-muted-foreground">{job.subtitle}</p>
           )}
         </div>
       </div>
@@ -58,7 +58,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onSelectJob }) => {
         <button
           type="button"
           onClick={() => onSelectJob(job)}
-          className="inline-flex min-h-8 cursor-pointer items-center gap-1 text-xs font-semibold text-[#D90416] transition hover:text-[#A80210] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90416]"
+          className="inline-flex min-h-8 cursor-pointer items-center gap-1 text-xs font-semibold text-primary transition hover:text-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           <span>More Details</span>
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -68,7 +68,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, onSelectJob }) => {
           type="button"
           onClick={() => onSelectJob(job)}
           aria-label={`View details for ${job.title}${job.subtitle ? ` (${job.subtitle})` : ""}`}
-          className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-[#FDECEC] text-[#D90416] transition group-hover:bg-[#D90416] group-hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90416]"
+          className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </button>

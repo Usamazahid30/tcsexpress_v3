@@ -14,8 +14,8 @@ import {
   FounderPage,
   SairaPage,
   HassanRazaPage,
+  CareerPage,
 } from "@/pages";
-import CareerPage from "./pages/career-page";
 
 export default function App() {
   return (

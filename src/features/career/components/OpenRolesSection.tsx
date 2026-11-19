@@ -27,24 +27,24 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
   return (
     <section
       aria-labelledby="open-roles-heading"
-      className="mx-auto max-w-6xl px-4 pt-9 pb-14 sm:px-6 sm:pt-11 sm:pb-16 lg:px-8"
+      className="container-page pt-9 pb-14 sm:pt-11 sm:pb-16"
     >
       {/* Header Row */}
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <h2
             id="open-roles-heading"
-            className="text-xl font-extrabold tracking-tight text-[#111827] sm:text-2xl"
+            className="text-xl font-extrabold tracking-tight text-foreground sm:text-2xl"
           >
             Open Roles
           </h2>
-          <span className="h-[2px] w-7 rounded-full bg-[#D90416]" aria-hidden="true" />
+          <span className="h-[2px] w-7 rounded-full bg-primary" aria-hidden="true" />
         </div>
 
         <button
           type="button"
           onClick={onViewAllJobs}
-          className="inline-flex min-h-9 cursor-pointer items-center gap-1 text-xs font-semibold text-[#D90416] transition hover:text-[#A80210] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90416] sm:text-sm"
+          className="inline-flex min-h-9 cursor-pointer items-center gap-1 text-xs font-semibold text-primary transition hover:text-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-sm"
         >
           <span>View All Jobs</span>
           <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
@@ -65,7 +65,7 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
               <button
                 type="button"
                 onClick={onLoadMore}
-                className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-md border border-[#E6B8BC] bg-white px-5 py-1.5 text-xs font-medium text-[#D90416] transition hover:border-[#D90416] hover:bg-[#FFF5F5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D90416]"
+                className="press inline-flex min-h-9 cursor-pointer items-center justify-center rounded-md border-2 border-primary bg-card px-5 py-1.5 text-xs font-bold text-primary dark:text-foreground transition hover:border-primary hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 Load more..
               </button>
@@ -73,17 +73,17 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
           )}
         </>
       ) : (
-        <div className="mt-6 rounded-2xl border border-[#EDE3D7] bg-white px-6 py-10 text-center">
-          <p className="text-base font-bold text-[#111827]">
+        <div className="mt-6 rounded-2xl border border-border bg-card px-6 py-10 text-center">
+          <p className="text-base font-bold text-foreground">
             No matching open roles found ({totalMatchingCount})
           </p>
-          <p className="mt-1 text-sm text-[#4B5563]">
+          <p className="mt-1 text-sm text-muted-foreground">
             Try adjusting your search keyword, location, or department filter.
           </p>
           <button
             type="button"
             onClick={onResetFilters}
-            className="mt-4 inline-flex min-h-10 cursor-pointer items-center justify-center rounded-lg bg-[#D90416] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#B80312]"
+            className="press mt-4 inline-flex min-h-10 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary-hover"
           >
             Reset All Filters
           </button>
@@ -91,23 +91,23 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
       )}
 
       {/* Fallback CV Banner */}
-      <div className="mt-9 flex flex-col items-start justify-between gap-4 rounded-xl border border-[#F7D7D9] bg-[#FDECEC] px-5 py-4 sm:flex-row sm:items-center sm:px-7 sm:py-5">
+      <div className="mt-9 flex flex-col items-start justify-between gap-4 rounded-md border border-primary/20 bg-primary/5 dark:bg-primary/15 px-5 py-4 sm:flex-row sm:items-center sm:px-7 sm:py-5">
         <div className="flex items-center gap-4 sm:gap-5">
-          <div
-            className="relative flex h-12 w-14 shrink-0 items-center justify-center rounded-lg bg-[#D90416] text-white shadow-xs"
+          {/* <div
+            className="relative flex h-12 w-14 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-xs"
             aria-hidden="true"
           >
             <FolderOpen className="h-6 w-6" />
-            <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded bg-white text-[#D90416] shadow-xs">
+            <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded bg-card text-primary shadow-xs">
               <FileText className="h-3 w-3" />
             </span>
-          </div>
+          </div> */}
 
           <div>
-            <h3 className="text-sm font-bold text-[#111827] sm:text-base">
+            <h3 className="text-sm font-bold text-foreground sm:text-base">
               Didn&apos;t Find the Right Role?
             </h3>
-            <p className="mt-0.5 text-xs text-[#4B5563] sm:text-[13px]">
+            <p className="mt-0.5 text-xs text-muted-foreground sm:text-[13px]">
               Share your profile with us and we&apos;ll reach out when a suitable opportunity opens
               up.
             </p>
@@ -117,7 +117,7 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
         <button
           type="button"
           onClick={onOpenCvModal}
-          className="inline-flex min-h-10 w-full shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-md border border-[#E49FA5] bg-white/80 px-4 py-2 text-xs font-semibold text-[#D90416] transition hover:border-[#D90416] hover:bg-white sm:w-auto"
+          className="press inline-flex min-h-10 w-full shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-sm border border-primary bg-card px-4 py-2 text-xs font-bold text-primary dark:text-foreground sm:w-auto "
         >
           <span>Submit Your CV</span>
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

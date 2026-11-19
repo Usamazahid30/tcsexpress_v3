@@ -13,32 +13,32 @@ export const StoryModal: React.FC<StoryModalProps> = ({ open, onOpenChange }) =>
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 backdrop-blur-[1px]" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#EFE6DA] bg-white p-6 shadow-xl focus:outline-none">
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs" />
+        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border bg-card p-6 shadow-xl focus:outline-none">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <Dialog.Title className="text-lg font-bold text-[#111827]">
+              <Dialog.Title className="text-lg font-bold text-foreground">
                 Life &amp; Purpose at TCS
               </Dialog.Title>
-              <Dialog.Description className="mt-1 text-xs text-[#4B5563]">
+              <Dialog.Description className="mt-1 text-xs text-muted-foreground">
                 Connecting communities, businesses, and careers across Pakistan.
               </Dialog.Description>
             </div>
             <Dialog.Close
               aria-label="Close story modal"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-[#6B7280] transition hover:bg-[#F3F4F6] hover:text-[#111827]"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </Dialog.Close>
           </div>
 
-          {/* <div className="mt-4 rounded-xl bg-[#FAF4EC] p-4 text-sm leading-relaxed text-[#374151]">
+          <div className="mt-4 rounded-xl border border-border bg-muted/50 dark:bg-muted/20 p-4 text-sm leading-relaxed text-foreground/90">
             From sorting hubs and long-haul fleet corridors to enterprise engineering and customer
             operations, every role at TCS helps keep commerce and households connected nationwide.
-          </div> */}
+          </div>
 
           <div className="mt-5 flex justify-end">
-            <Dialog.Close className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-[#D90416] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#B80312]">
+            <Dialog.Close className="press inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary-hover">
               Got It
             </Dialog.Close>
           </div>
@@ -98,21 +98,21 @@ export const CvModal: React.FC<CvModalProps> = ({
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 backdrop-blur-[1px]" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#EFE6DA] bg-white p-6 shadow-xl focus:outline-none">
+      {/* <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs" />
+        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border bg-card p-6 shadow-xl focus:outline-none">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <Dialog.Title className="text-lg font-bold text-[#111827]">
+              <Dialog.Title className="text-lg font-bold text-foreground">
                 Submit Your CV
               </Dialog.Title>
-              <Dialog.Description className="mt-1 text-xs text-[#4B5563]">
+              <Dialog.Description className="mt-1 text-xs text-muted-foreground">
                 Share your details so we can reach out when a matching role opens.
               </Dialog.Description>
             </div>
             <Dialog.Close
               aria-label="Close CV modal"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-[#6B7280] transition hover:bg-[#F3F4F6] hover:text-[#111827]"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </Dialog.Close>
@@ -120,7 +120,7 @@ export const CvModal: React.FC<CvModalProps> = ({
 
           <form onSubmit={handleSubmit} className="mt-4 space-y-3.5">
             <div>
-              <label htmlFor="cv-fullname" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="cv-fullname" className="block text-xs font-semibold text-foreground">
                 Full Name *
               </label>
               <input
@@ -129,12 +129,12 @@ export const CvModal: React.FC<CvModalProps> = ({
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="e.g. Ayesha Tariq"
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="cv-email" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="cv-email" className="block text-xs font-semibold text-foreground">
                 Email Address *
               </label>
               <input
@@ -143,19 +143,22 @@ export const CvModal: React.FC<CvModalProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="ayesha@example.com"
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="cv-department" className="block text-xs font-semibold text-[#1F2937]">
+              <label
+                htmlFor="cv-department"
+                className="block text-xs font-semibold text-foreground"
+              >
                 Preferred Department
               </label>
               <select
                 id="cv-department"
                 value={preferredDepartment}
                 onChange={(e) => setPreferredDepartment(e.target.value)}
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] bg-white px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               >
                 {departments.map((dept) => (
                   <option key={dept} value={dept}>
@@ -166,7 +169,7 @@ export const CvModal: React.FC<CvModalProps> = ({
             </div>
 
             <div>
-              <label htmlFor="cv-summary" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="cv-summary" className="block text-xs font-semibold text-foreground">
                 LinkedIn / Portfolio or Experience Summary
               </label>
               <textarea
@@ -175,31 +178,31 @@ export const CvModal: React.FC<CvModalProps> = ({
                 value={portfolioOrSummary}
                 onChange={(e) => setPortfolioOrSummary(e.target.value)}
                 placeholder="Briefly share your background, city preference, or profile link..."
-                className="mt-1 w-full rounded-lg border border-[#D1D5DB] p-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-border bg-background p-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             {error && (
-              <p role="alert" className="text-xs font-medium text-[#D90416]">
+              <p role="alert" className="text-xs font-medium text-destructive">
                 {error}
               </p>
             )}
 
             <div className="flex justify-end gap-2 pt-2">
-              <Dialog.Close className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg border border-[#D1D5DB] px-4 py-2 text-xs font-semibold text-[#374151] hover:bg-[#F9FAFB]">
+              <Dialog.Close className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg border border-border px-4 py-2 text-xs font-semibold text-foreground hover:bg-muted">
                 Cancel
               </Dialog.Close>
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-[#D90416] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#B80312] disabled:opacity-60"
+                className="press inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary-hover disabled:opacity-60"
               >
                 {submitting ? "Submitting..." : "Submit Profile"}
               </button>
             </div>
           </form>
         </Dialog.Content>
-      </Dialog.Portal>
+      </Dialog.Portal> */}
     </Dialog.Root>
   );
 };
@@ -251,25 +254,25 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
 
   return (
     <Dialog.Root open={Boolean(job)} onOpenChange={(open) => !open && onClose()}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 backdrop-blur-[1px]" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#EFE6DA] bg-white p-6 shadow-xl focus:outline-none">
+      {/* <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs" />
+        <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-[92vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-border bg-card p-6 shadow-xl focus:outline-none">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D90416]">
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
                 <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{job.location}</span>
               </div>
-              <Dialog.Title className="mt-1 text-lg font-bold text-[#111827]">
+              <Dialog.Title className="mt-1 text-lg font-bold text-foreground">
                 Apply for {job.title}
               </Dialog.Title>
-              <Dialog.Description className="mt-0.5 text-xs text-[#4B5563]">
+              <Dialog.Description className="mt-0.5 text-xs text-muted-foreground">
                 {job.subtitle ?? job.department} · {job.jobType}
               </Dialog.Description>
             </div>
             <Dialog.Close
               aria-label="Close application modal"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-[#6B7280] transition hover:bg-[#F3F4F6] hover:text-[#111827]"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </Dialog.Close>
@@ -279,7 +282,7 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
             <div>
               <label
                 htmlFor="apply-fullname"
-                className="block text-xs font-semibold text-[#1F2937]"
+                className="block text-xs font-semibold text-foreground"
               >
                 Full Name *
               </label>
@@ -289,12 +292,12 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Your full name"
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="apply-email" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="apply-email" className="block text-xs font-semibold text-foreground">
                 Email Address *
               </label>
               <input
@@ -303,12 +306,12 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="apply-phone" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="apply-phone" className="block text-xs font-semibold text-foreground">
                 Phone Number
               </label>
               <input
@@ -317,12 +320,12 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="03XX-XXXXXXX"
-                className="mt-1 h-10 w-full rounded-lg border border-[#D1D5DB] px-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 h-10 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             <div>
-              <label htmlFor="apply-notes" className="block text-xs font-semibold text-[#1F2937]">
+              <label htmlFor="apply-notes" className="block text-xs font-semibold text-foreground">
                 Relevant Experience / Note
               </label>
               <textarea
@@ -331,31 +334,31 @@ export const ApplyModal: React.FC<ApplyModalProps> = ({ job, onClose, onApplySub
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Share a quick note on why you're a fit for this role..."
-                className="mt-1 w-full rounded-lg border border-[#D1D5DB] p-3 text-sm text-[#111827] focus:border-[#D90416] focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-border bg-background p-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
               />
             </div>
 
             {error && (
-              <p role="alert" className="text-xs font-medium text-[#D90416]">
+              <p role="alert" className="text-xs font-medium text-destructive">
                 {error}
               </p>
             )}
 
             <div className="flex justify-end gap-2 pt-2">
-              <Dialog.Close className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg border border-[#D1D5DB] px-4 py-2 text-xs font-semibold text-[#374151] hover:bg-[#F9FAFB]">
+              <Dialog.Close className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg border border-border px-4 py-2 text-xs font-semibold text-foreground hover:bg-muted">
                 Cancel
               </Dialog.Close>
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-[#D90416] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#B80312] disabled:opacity-60"
+                className="press inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary-hover disabled:opacity-60"
               >
                 {submitting ? "Submitting..." : "Submit Application"}
               </button>
             </div>
           </form>
         </Dialog.Content>
-      </Dialog.Portal>
+      </Dialog.Portal> */}
     </Dialog.Root>
   );
 };

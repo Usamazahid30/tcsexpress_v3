@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Globe, Menu, Moon, Search, Sun, User, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 import { RippleButton } from "@/components/common";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -50,6 +50,7 @@ export function SiteHeader() {
     // { label: "Leadership", href: "/leadership", isRoute: true },
     { label: t("site:nav.services"), href: "/services", isRoute: true },
     { label: t("site:nav.contact"), href: "/contact", isRoute: true },
+    { label: "Careers", href: "/career", isRoute: true },
   ];
 
   return (

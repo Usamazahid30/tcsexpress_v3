@@ -88,6 +88,7 @@ export const CareersPortal: React.FC<CareersPortalProps> = ({
 
   const handleBackToRoles = () => {
     navigate("/career");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
