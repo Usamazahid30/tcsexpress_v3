@@ -15,6 +15,7 @@ import {
   SairaPage,
   HassanRazaPage,
 } from "@/pages";
+import CareerPage from "./pages/career-page";
 
 export default function App() {
   return (
@@ -42,6 +43,9 @@ export default function App() {
               <Route path="/saadia-awan" element={<LeadershipPage />} />
               <Route path="/anwaar-nizami" element={<LeadershipPage />} />
               <Route path="/abdul-qadir-aziz" element={<LeadershipPage />} />
+              {/* Career */}
+              <Route path="/career" element={<CareerPage />} />
+              <Route path="/career/:jobId" element={<CareerPage />} />
             </Routes>
           </MainLayout>
         </PageTransitionProvider>
