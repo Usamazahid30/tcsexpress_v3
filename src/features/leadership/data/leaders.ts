@@ -74,7 +74,7 @@ export const executiveLeaders: Leader[] = [
     role: "CEO TCS Private Limited",
     category: "executive",
     image: "/leadership/HassanRazaLeghari.jpg",
-    href: "/HassanRaza",
+    href: "/hassan-raza",
     socials: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
