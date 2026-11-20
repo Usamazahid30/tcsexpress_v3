@@ -33,7 +33,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
   return (
     <header className="relative w-full pb-16 sm:pb-20">
       {/* Banner Container */}
-      <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[470px]">
+      <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[580px]">
         {bannerImageUrl ? (
           <img
             src={bannerImageUrl}
@@ -49,7 +49,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
 
         {/* Foreground Hero Content */}
 
-        <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center py-12 pl-6 pr-6 sm:min-h-[470px] sm:pl-5 lg:pl-10">
+        <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center py-12 pl-6 pr-6 sm:min-h-[580px] sm:pl-5 lg:pl-10">
           <div className="w-full max-w-xl text-left">
             <div className="mb-3 flex items-center gap-3">
               <span className="text-xs font-bold tracking-wide text-primary sm:text-sm">
