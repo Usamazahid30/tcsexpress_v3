@@ -20,9 +20,9 @@ export const StoryModal: React.FC<StoryModalProps> = ({ open, onOpenChange }) =>
               <Dialog.Title className="text-lg font-bold text-foreground">
                 Life &amp; Purpose at TCS
               </Dialog.Title>
-              <Dialog.Description className="mt-1 text-xs text-muted-foreground">
+              {/* <Dialog.Description className="mt-1 text-xs text-muted-foreground">
                 Connecting communities, businesses, and careers across Pakistan.
-              </Dialog.Description>
+              </Dialog.Description> */}
             </div>
             <Dialog.Close
               aria-label="Close story modal"
@@ -32,10 +32,10 @@ export const StoryModal: React.FC<StoryModalProps> = ({ open, onOpenChange }) =>
             </Dialog.Close>
           </div>
 
-          <div className="mt-4 rounded-xl border border-border bg-muted/50 dark:bg-muted/20 p-4 text-sm leading-relaxed text-foreground/90">
+          {/* <div className="mt-4 rounded-xl border border-border bg-muted/50 dark:bg-muted/20 p-4 text-sm leading-relaxed text-foreground/90">
             From sorting hubs and long-haul fleet corridors to enterprise engineering and customer
             operations, every role at TCS helps keep commerce and households connected nationwide.
-          </div>
+          </div> */}
 
           <div className="mt-5 flex justify-end">
             <Dialog.Close className="press inline-flex min-h-9 cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition hover:bg-primary-hover">
