@@ -92,8 +92,8 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
 
       {/* Fallback CV Banner */}
       <div className="mt-9 flex flex-col items-start justify-between gap-4 rounded-md border border-primary/20 bg-primary/5 dark:bg-primary/15 px-5 py-4 sm:flex-row sm:items-center sm:px-7 sm:py-5">
-        <div className="flex items-center gap-4 sm:gap-5">
-          {/* <div
+        {/* <div className="flex items-center gap-4 sm:gap-5 "> */}
+        {/* <div
             className="relative flex h-12 w-14 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-xs"
             aria-hidden="true"
           >
@@ -103,16 +103,19 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
             </span>
           </div> */}
 
-          <div>
-            <h3 className="text-sm font-bold text-foreground sm:text-base">
-              Didn&apos;t Find the Right Role?
-            </h3>
-            <p className="mt-0.5 text-xs text-muted-foreground sm:text-[13px]">
-              Share your profile with us and we&apos;ll reach out when a suitable opportunity opens
-              up.
-            </p>
-          </div>
+        <div className="">
+          <img src="../../../../public/career/Box1.png" alt="" className="w-[150px]" />
         </div>
+        <div className="">
+          <h3 className="text-sm font-bold text-foreground sm:text-2xl">
+            Didn&apos;t Find the Right Role?
+          </h3>
+          <p className="mt-0.5 text-xs text-muted-foreground sm:text-[15px]">
+            Share your profile with us and we&apos;ll reach out when a suitable opportunity opens
+            up.
+          </p>
+        </div>
+        {/* </div> */}
 
         <button
           type="button"

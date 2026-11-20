@@ -35,28 +35,22 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
       {/* Banner Container */}
       <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[470px]">
         {bannerImageUrl ? (
-          <>
-            <img
-              src={bannerImageUrl}
-              alt="TCS Careers"
-              className="absolute inset-0 h-full w-full object-cover object-center"
-              loading="eager"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/30 md:w-3/4"
-            />
-          </>
+          <img
+            src={bannerImageUrl}
+            alt="TCS Careers"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            loading="eager"
+          />
         ) : (
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <div className="absolute -top-16 right-[14%] h-72 w-72 rotate-12 rounded-3xl border-[14px] border-primary/45 shadow-[0_0_50px_rgba(217,4,22,0.25)]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-transparent md:w-3/4" />
           </div>
         )}
 
         {/* Foreground Hero Content */}
-        <div className="container-page relative z-10 flex min-h-[420px] flex-col justify-center py-12 sm:min-h-[470px]">
-          <div className="max-w-xl">
+
+        <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center py-12 pl-6 pr-6 sm:min-h-[470px] sm:pl-5 lg:pl-10">
+          <div className="w-full max-w-xl text-left">
             <div className="mb-3 flex items-center gap-3">
               <span className="text-xs font-bold tracking-wide text-primary sm:text-sm">
                 Careers at TCS
@@ -64,7 +58,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
               <span className="h-[2px] w-7 rounded-full bg-primary" aria-hidden="true" />
             </div>
 
-            <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-left text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl">
               Build a Career
               <br />
               That Keeps
@@ -72,7 +66,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
               <span className="text-primary">Pakistan Moving.</span>
             </h1>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="mt-7 flex flex-wrap items-center justify-start gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={onExploreClick}
