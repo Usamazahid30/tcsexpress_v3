@@ -64,7 +64,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
               <br />
               That Keeps
               <br />
-              <span className="text-primary">Pakistan Moving.</span>
+              <span className="text-primary">Pakistan Moving</span>
             </h1>
 
             <div className="mt-7 flex flex-wrap items-center justify-start gap-3 sm:gap-4">
