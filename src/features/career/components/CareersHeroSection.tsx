@@ -52,12 +52,12 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
 
         <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center pt-20 pb-12 pl-6 pr-6 sm:min-h-[580px] sm:pt-24 sm:pl-5 lg:pl-10">
           <div className="w-full max-w-xl text-left">
-            <div className="mb-3 flex items-center gap-3">
+            {/* <div className="mb-3 flex items-center gap-3">
               <span className="text-xs font-bold tracking-wide text-primary sm:text-sm">
                 Careers at TCS
               </span>
               <span className="h-[2px] w-7 rounded-full bg-primary" aria-hidden="true" />
-            </div>
+            </div> */}
 
             <h1 className="text-left text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl">
               Build a Career

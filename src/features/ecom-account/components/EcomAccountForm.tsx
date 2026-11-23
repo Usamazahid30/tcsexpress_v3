@@ -1,5 +1,6 @@
 import { BreadcrumbBar } from "@/components/ui/BreadcrumbBar";
 import { BsBuildings } from "react-icons/bs";
+import { FaUser } from "react-icons/fa";
 
 const inputClass =
   "h-10 w-full rounded-lg border border-white/30 bg-white/[0.04] px-3 text-sm text-white outline-none placeholder:text-white/90 focus:border-red-400 focus:bg-white/10";
@@ -99,7 +100,9 @@ export function EcomAccountForm() {
 
         {/* Contact Person */}
         <div className="mb-5 mt-7 flex items-center gap-3">
-          <span className="text-2xl">♙</span>
+          <span className="text-2xl">
+            <FaUser />
+          </span>
           <h2 className="text-lg font-semibold">Contact Person</h2>
         </div>
 
