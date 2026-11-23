@@ -34,7 +34,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
   return (
     <header className="relative w-full">
       {/* Banner Container */}
-      <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[580px]">
+      <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[660px] mt-[70px]">
         {bannerImageUrl ? (
           <img
             src={bannerImageUrl}
