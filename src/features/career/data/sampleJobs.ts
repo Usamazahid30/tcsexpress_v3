@@ -238,28 +238,7 @@ export const SAMPLE_JOBS: JobPosting[] = [
       "Polite communication, reliability, and attention to detail.",
     ],
   },
-  {
-    id: "senior-frontend-engineer",
-    title: "Senior Frontend Engineer",
-    subtitle: "Design Systems & Portals",
-    department: "Information Technology",
-    jobType: "Full-time",
-    location: "Karachi, Pakistan",
-    deadline: "05 Jan 2026",
-    iconKey: "code",
-    overview:
-      "Shape reusable UI architecture, design tokens, and high-traffic web experiences across TCS digital products.",
-    responsibilities: [
-      "Build modular React and TypeScript component libraries with strong accessibility.",
-      "Partner with product and engineering leads to optimize bundle size and runtime speed.",
-      "Review pull requests and mentor junior and mid-level frontend engineers.",
-    ],
-    requirements: [
-      "Bachelor's degree in Computer Science or related field.",
-      "4+ years of frontend engineering experience with React, TypeScript, and modern CSS.",
-      "Deep understanding of responsive layout, state management, and UX polish.",
-    ],
-  },
+
   {
     id: "hub-operations-lead",
     title: "Hub Operations Supervisor",

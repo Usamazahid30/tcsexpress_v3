@@ -50,7 +50,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
 
         {/* Foreground Hero Content */}
 
-        <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center py-12 pl-6 pr-6 sm:min-h-[580px] sm:pl-5 lg:pl-10">
+        <div className="relative z-10 flex w-full min-h-[420px] flex-col justify-center pt-20 pb-12 pl-6 pr-6 sm:min-h-[580px] sm:pt-24 sm:pl-5 lg:pl-10">
           <div className="w-full max-w-xl text-left">
             <div className="mb-3 flex items-center gap-3">
               <span className="text-xs font-bold tracking-wide text-primary sm:text-sm">
@@ -77,7 +77,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
 
-              <button
+              {/* <button
                 type="button"
                 onClick={onWatchStoryClick}
                 className="press inline-flex min-h-11 cursor-pointer items-center gap-2.5 rounded-sm px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-card/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -86,7 +86,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
                   <Play className="ml-0.5 h-3.5 w-3.5 fill-current" aria-hidden="true" />
                 </span>
                 <span>Watch Our Story</span>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

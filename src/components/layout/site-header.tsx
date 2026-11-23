@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Globe, Menu, Moon, Search, Sun, User, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { href, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RippleButton } from "@/components/common";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -11,6 +11,10 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+
+  const isCareerPage = location.pathname === "/career" || location.pathname === "/career/";
+  const isTransparent = isCareerPage && !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -57,7 +61,11 @@ export function SiteHeader() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass border-b border-border shadow-(--shadow-soft)" : "bg-surface"
+          scrolled || open
+            ? "glass border-b border-border shadow-(--shadow-soft)"
+            : isTransparent
+              ? "bg-transparent border-transparent"
+              : "bg-surface"
         }`}
       >
         <div
@@ -73,7 +81,9 @@ export function SiteHeader() {
             <img
               src="/tcs.svg"
               alt="TCS"
-              className={`w-auto transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
+              className={`w-auto transition-all duration-500 ${scrolled ? "h-7" : "h-9"} ${
+                isTransparent ? "drop-shadow-sm" : ""
+              }`}
             />
           </Link>
 
@@ -83,7 +93,11 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="link-underline text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                  className={`link-underline text-sm font-medium transition-colors ${
+                    isTransparent
+                      ? "text-white/90 hover:text-white drop-shadow-xs"
+                      : "text-foreground/80 hover:text-primary"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -91,7 +105,11 @@ export function SiteHeader() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="link-underline text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                  className={`link-underline text-sm font-medium transition-colors ${
+                    isTransparent
+                      ? "text-white/90 hover:text-white drop-shadow-xs"
+                      : "text-foreground/80 hover:text-primary"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -102,13 +120,21 @@ export function SiteHeader() {
           <div className="hidden items-center gap-2.5 lg:flex">
             <button
               aria-label={t("common:actions.search")}
-              className="press grid h-10 w-10 place-items-center rounded-full text-muted-foreground hover:text-primary"
+              className={`press grid h-10 w-10 place-items-center rounded-full transition-colors ${
+                isTransparent
+                  ? "text-white/90 hover:bg-white/15 hover:text-white"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               <Search className="h-4.5 w-4.5" />
             </button>
             <a
               href=""
-              className="press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground hover:text-primary"
+              className={`press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors ${
+                isTransparent
+                  ? "text-white/90 hover:bg-white/15 hover:text-white"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               <User className="h-4.5 w-4.5" /> {t("common:actions.login")}
             </a>
@@ -117,19 +143,31 @@ export function SiteHeader() {
             {/* Pakistan Country Badge */}
             <button
               aria-label={t("common:brand.country")}
-              className="press inline-flex h-10 items-center gap-2 rounded-full border border-border px-3 text-sm font-medium text-foreground/80"
+              className={`press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors ${
+                isTransparent
+                  ? "border border-white/30 bg-white/10 text-white backdrop-blur-xs hover:bg-white/20"
+                  : "border border-border text-foreground/80 hover:bg-muted"
+              }`}
             >
               <Globe className="h-4 w-4" /> {t("common:brand.country")}
             </button>
 
             {/* Language Switcher Pill alongside Country Badge */}
-            <div className="flex items-center rounded-full border border-border bg-card p-1 text-xs font-semibold shadow-xs">
+            <div
+              className={`flex items-center rounded-full p-1 text-xs font-semibold shadow-xs transition-colors ${
+                isTransparent
+                  ? "border border-white/30 bg-white/10 backdrop-blur-xs text-white"
+                  : "border border-border bg-card"
+              }`}
+            >
               <button
                 onClick={() => changeLanguage("en")}
                 className={`rounded-full px-2.5 py-1 transition-all ${
                   currentLang === "en"
                     ? "bg-primary text-primary-foreground shadow-xs"
-                    : "text-muted-foreground hover:text-foreground"
+                    : isTransparent
+                      ? "text-white/80 hover:text-white"
+                      : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {t("common:languages.en")}
@@ -139,7 +177,9 @@ export function SiteHeader() {
                 className={`rounded-full px-2.5 py-1 transition-all ${
                   currentLang === "ur"
                     ? "bg-primary text-primary-foreground shadow-xs"
-                    : "text-muted-foreground hover:text-foreground"
+                    : isTransparent
+                      ? "text-white/80 hover:text-white"
+                      : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {t("common:languages.ur")}
@@ -152,7 +192,11 @@ export function SiteHeader() {
               aria-label={
                 theme === "dark" ? t("common:theme.light_mode") : t("common:theme.dark_mode")
               }
-              className="press grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground hover:bg-muted hover:border-primary/40 shadow-xs transition-colors"
+              className={`press grid h-10 w-10 place-items-center rounded-full shadow-xs transition-colors ${
+                isTransparent
+                  ? "border border-white/30 bg-white/10 text-white backdrop-blur-xs hover:bg-white/20"
+                  : "border border-border bg-card text-foreground hover:bg-muted hover:border-primary/40"
+              }`}
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
@@ -164,9 +208,13 @@ export function SiteHeader() {
                   className="grid place-items-center"
                 >
                   {theme === "dark" ? (
-                    <Sun className="h-4.5 w-4.5 text-foreground" />
+                    <Sun
+                      className={`h-4.5 w-4.5 ${isTransparent ? "text-white" : "text-foreground"}`}
+                    />
                   ) : (
-                    <Moon className="h-4.5 w-4.5 text-foreground" />
+                    <Moon
+                      className={`h-4.5 w-4.5 ${isTransparent ? "text-white" : "text-foreground"}`}
+                    />
                   )}
                 </motion.span>
               </AnimatePresence>
@@ -177,7 +225,11 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? t("common:nav.close_menu") : t("common:nav.open_menu")}
             aria-expanded={open}
-            className="press grid h-11 w-11 place-items-center rounded-full border border-border lg:hidden"
+            className={`press grid h-11 w-11 place-items-center rounded-full transition-colors lg:hidden ${
+              isTransparent
+                ? "border border-white/30 bg-white/10 text-white hover:bg-white/20"
+                : "border border-border text-foreground"
+            }`}
           >
             <motion.span animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.3 }}>
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
