@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight, Award, HeartPulse, Layers, Play, Truck, Users } from "lucide-react";
 import { VALUE_PILLARS } from "../data/sampleJobs";
 import { ValuePillarIconKey } from "../types/careers";
+import { CareerBenefitsStrip } from "./CareerBenefitsStrip";
 
 interface CareersHeroSectionProps {
   bannerImageUrl?: string;
@@ -31,7 +32,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
   onWatchStoryClick,
 }) => {
   return (
-    <header className="relative w-full pb-16 sm:pb-20">
+    <header className="relative w-full">
       {/* Banner Container */}
       <div className="relative min-h-[420px] w-full overflow-hidden bg-gradient-to-br from-[#2B3245] via-[#4A3B52] to-[#C93B2B] sm:min-h-[580px]">
         {bannerImageUrl ? (
@@ -92,7 +93,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
       </div>
 
       {/* Floating Value Proposition Bar */}
-      <div className="container-page relative z-20 -mt-10 sm:-mt-11">
+      {/* <div className="container-page relative z-20 -mt-10 sm:-mt-11">
         <div className="rounded-2xl border border-border bg-card px-4 py-4 shadow-soft sm:px-6 sm:py-5">
           <ul className="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x lg:divide-border">
             {VALUE_PILLARS.map((pillar, index) => (
@@ -114,7 +115,9 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
+
+      <CareerBenefitsStrip />
     </header>
   );
 };

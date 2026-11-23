@@ -1,8 +1,20 @@
 export type JobIconKey =
   "code" | "monitor" | "package" | "user" | "network" | "layers" | "truck" | "gift";
 
-export type ValuePillarIconKey = "purpose" | "growth" | "culture" | "health" | "rewards";
+// export type ValuePillarIconKey = "purpose" | "growth" | "culture" | "health" | "rewards";
 
+export type ValuePillarIconKey =
+  | "purpose"
+  | "growth"
+  | "culture"
+  | "health"
+  | "rewards"
+  | "health-pulse"
+  | "award-badge"
+  | "calendar-pto"
+  | "graduation-cap"
+  | "lotus-wellbeing"
+  | "growth-bars";
 export interface JobPosting {
   id: string;
   title: string;

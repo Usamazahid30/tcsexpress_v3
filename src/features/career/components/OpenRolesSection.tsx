@@ -92,17 +92,6 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
 
       {/* Fallback CV Banner */}
       <div className="mt-9 flex flex-col items-start justify-between gap-4 rounded-md border border-primary/20 bg-primary/5 dark:bg-primary/15 px-5 py-4 sm:flex-row sm:items-center sm:px-7 sm:py-5">
-        {/* <div className="flex items-center gap-4 sm:gap-5 "> */}
-        {/* <div
-            className="relative flex h-12 w-14 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-xs"
-            aria-hidden="true"
-          >
-            <FolderOpen className="h-6 w-6" />
-            <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded bg-card text-primary shadow-xs">
-              <FileText className="h-3 w-3" />
-            </span>
-          </div> */}
-
         <div className="">
           <img src="/career/Box1.png" alt="" className="w-[150px]" />
         </div>
@@ -115,7 +104,6 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
             up.
           </p>
         </div>
-        {/* </div> */}
 
         <button
           type="button"

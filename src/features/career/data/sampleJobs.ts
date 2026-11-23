@@ -8,6 +8,39 @@ export const VALUE_PILLARS: ValuePillar[] = [
   { id: "rewards", label: "Rewards & Recognition", iconKey: "rewards" },
 ];
 
+export const CAREER_BENEFITS_PILLARS: ValuePillar[] = [
+  {
+    id: "health-wellness-benefits",
+    label: "Health & Wellness Benefits",
+    iconKey: "health-pulse",
+  },
+  {
+    id: "rewards-recognition",
+    label: "Rewards & Recognition",
+    iconKey: "award-badge",
+  },
+  {
+    id: "generous-paid-time-off",
+    label: "Generous Paid Time Off",
+    iconKey: "calendar-pto",
+  },
+  {
+    id: "learning-development",
+    label: "Learning & Development",
+    iconKey: "graduation-cap",
+  },
+  {
+    id: "wellbeing-at-work",
+    label: "Wellbeing at Work",
+    iconKey: "lotus-wellbeing",
+  },
+  {
+    id: "career-growth",
+    label: "Career Growth",
+    iconKey: "growth-bars",
+  },
+];
+
 export const SAMPLE_JOBS: JobPosting[] = [
   {
     id: "project-engineer-admin",
