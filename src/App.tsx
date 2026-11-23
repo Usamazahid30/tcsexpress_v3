@@ -15,6 +15,7 @@ import {
   SairaPage,
   HassanRazaPage,
   CareerPage,
+  EcomAccountPage,
 } from "@/pages";
 
 export default function App() {
@@ -46,6 +47,8 @@ export default function App() {
               {/* Career */}
               <Route path="/career" element={<CareerPage />} />
               <Route path="/career/:jobId" element={<CareerPage />} />
+              {/* Ecom Account */}
+              <Route path="/ecom" element={<EcomAccountPage />} />
             </Routes>
           </MainLayout>
         </PageTransitionProvider>

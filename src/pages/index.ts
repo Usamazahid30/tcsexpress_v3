@@ -10,3 +10,4 @@ export { FounderPage } from "./founder-page";
 export { SairaPage } from "./saira-page";
 export { HassanRazaPage } from "./hassan-raza-page";
 export { CareerPage } from "./career-page";
+export { EcomAccountPage } from "./ecom-account-page";
