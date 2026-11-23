@@ -9,7 +9,7 @@ export function EcomAccountHero() {
             boxShadow: "0 0 5px rgba(255, 25, 55, 0.65), 0 0 14px rgba(255, 25, 55, 0.35)",
           }}
         >
-          TCS E-com Solutions
+          TCS E-Com Solutions
         </span>
 
         <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">
