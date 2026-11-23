@@ -104,7 +104,7 @@ export const OpenRolesSection: React.FC<OpenRolesSectionProps> = ({
           </div> */}
 
         <div className="">
-          <img src="../../../../public/career/Box1.png" alt="" className="w-[150px]" />
+          <img src="/career/Box1.png" alt="" className="w-[150px]" />
         </div>
         <div className="">
           <h3 className="text-sm font-bold text-foreground sm:text-2xl">
