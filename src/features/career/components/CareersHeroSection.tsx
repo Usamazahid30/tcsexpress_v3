@@ -59,7 +59,7 @@ export const CareersHeroSection: React.FC<CareersHeroSectionProps> = ({
               <span className="h-[2px] w-7 rounded-full bg-primary" aria-hidden="true" />
             </div> */}
 
-            <h1 className="text-left text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-left text-4xl font-extrabold leading-[1.12] tracking-tight text-[#1f2937] sm:text-5xl">
               Build a Career
               <br />
               That Keeps

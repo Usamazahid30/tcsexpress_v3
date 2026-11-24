@@ -3,7 +3,7 @@ import { BsBuildings } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 
 const inputClass =
-  "h-10 w-full rounded-lg border border-white/30 bg-white/[0.04] px-3 text-sm text-white outline-none placeholder:text-white/90 focus:border-red-400 focus:bg-white/10";
+  "h-10 w-full rounded-lg border border-white/30 bg-white/[0.04] px-3 text-sm text-white outline-none placeholder:text-white/90 focus:border-primary focus:bg-white/10";
 
 const businessFields = [
   { placeholder: "Company Name / Account Title *", required: true },
@@ -29,9 +29,8 @@ const contactFields = [
 
 export function EcomAccountForm() {
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 pb-7">
+    <section className="mx-auto w-full max-w-5xl px-4 pb-7 ">
       <div className="rounded-[30px] border border-white/50 bg-white/[0.10] p-5 text-white shadow-[0_15px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl md:p-10">
-        {/* Steps */}
         {/* Breadcrumb Steps */}
         <section className="mx-auto w-full max-w-5xl px-4 pb-3">
           <BreadcrumbBar />
@@ -122,7 +121,7 @@ export function EcomAccountForm() {
         <div className="mt-6 flex justify-end">
           <button
             type="button"
-            className="flex min-w-56 items-center justify-center gap-3 rounded-full bg-[#e90016] px-8 py-3 font-semibold text-white shadow-[0_0_22px_rgba(233,0,22,0.4)] transition hover:bg-red-700"
+            className="press flex min-w-56 items-center justify-center gap-3 rounded-full bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition hover:bg-primary-hover"
           >
             Next <span className="text-xl">→</span>
           </button>
