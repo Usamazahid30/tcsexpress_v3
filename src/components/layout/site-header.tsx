@@ -13,10 +13,12 @@ export function SiteHeader() {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
+  const isHomePage = location.pathname === "/";
   const isCareerPage = location.pathname === "/career" || location.pathname === "/career/";
   const isEcomPage = location.pathname === "/ecom" || location.pathname === "/ecom/";
   const isInterPage = location.pathname === "/international";
-  const isTransparent = (isCareerPage || isEcomPage || isInterPage) && !scrolled && !open;
+  const isTransparent =
+    (isHomePage || isCareerPage || isEcomPage || isInterPage) && !scrolled && !open;
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
