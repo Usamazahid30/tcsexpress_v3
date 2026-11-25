@@ -17,6 +17,8 @@ import {
   CareerPage,
   EcomAccountPage,
 } from "@/pages";
+import { InternationalExpressContent } from "./features/internationalexpress";
+import { InternationalExpressPage } from "./pages/international-express-page";
 
 export default function App() {
   return (
@@ -49,6 +51,7 @@ export default function App() {
               <Route path="/career/:jobId" element={<CareerPage />} />
               {/* Ecom Account */}
               <Route path="/ecom" element={<EcomAccountPage />} />
+              <Route path="/internationalexpress" element={<InternationalExpressPage />} />
             </Routes>
           </MainLayout>
         </PageTransitionProvider>
