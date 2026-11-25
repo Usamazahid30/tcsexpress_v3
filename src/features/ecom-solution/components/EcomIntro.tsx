@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/common";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function EcomIntro() {
   return (
@@ -26,13 +27,13 @@ export function EcomIntro() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-8 flex justify-end">
-              <a
-                href="/ecom"
+              <Link
+                to="/ecom"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary-hover"
               >
                 Open an Account
                 <ArrowRight className="h-4 w-4 rtl-flip" />
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>

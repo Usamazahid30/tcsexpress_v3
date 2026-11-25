@@ -130,7 +130,7 @@ export function SiteHeader() {
               <Search className="h-4.5 w-4.5" />
             </button>
             <a
-              href=""
+              href="/ecom"
               className={`press inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium transition-colors ${
                 isTransparent
                   ? "text-white/90 hover:bg-white/15 hover:text-white"
