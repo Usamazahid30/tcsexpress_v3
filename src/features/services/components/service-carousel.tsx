@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
-  { id: "air", image: "Services/air.jpg", href: "#services" },
+  { id: "corporate", image: "Services/corporate.jpg", href: "#services" },
+  { id: "air", image: "Services/air.png", href: "#services" },
   { id: "logistics", image: "Services/logistics.jpg", href: "/logistics" },
   {
     id: "sentiments",
