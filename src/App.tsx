@@ -17,7 +17,6 @@ import {
   CareerPage,
   EcomAccountPage,
 } from "@/pages";
-import { InternationalExpressContent } from "./features/internationalexpress";
 import { InternationalExpressPage } from "./pages/international-express-page";
 
 export default function App() {
@@ -37,7 +36,7 @@ export default function App() {
               <Route path="/ecom-solution" element={<EcomSolutionPage />} />
               <Route path="/logistics" element={<LogisticsPage />} />
               <Route path="/tcslogistics" element={<LogisticsPage />} />
-              <Route path="/international" element={<InternationalPage />} />
+              <Route path="/international" element={<InternationalExpressPage />} />
               {/* Leader profile routes */}
               <Route path="/founder" element={<FounderPage />} />
               <Route path="/saira-awan-malik" element={<SairaPage />} />
@@ -51,7 +50,7 @@ export default function App() {
               <Route path="/career/:jobId" element={<CareerPage />} />
               {/* Ecom Account */}
               <Route path="/ecom" element={<EcomAccountPage />} />
-              <Route path="/internationalexpress" element={<InternationalExpressPage />} />
+              {/* <Route path="/internationalexpress" element={<InternationalExpressPage />} /> */}
             </Routes>
           </MainLayout>
         </PageTransitionProvider>

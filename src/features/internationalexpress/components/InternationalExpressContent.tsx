@@ -1,15 +1,7 @@
 import { Link } from "react-router-dom";
-import {
-  Plane,
-  Package,
-  Clock3,
-  Globe2,
-  ArrowRight,
-  MapPin,
-  Headphones,
-  Boxes,
-} from "lucide-react";
+import { Plane, Package, Clock3, Globe, ArrowRight, MapPin, Headphones, Boxes } from "lucide-react";
 import { InternationalExpressSolutions } from "./InternationalExpressSolutions";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
@@ -28,60 +20,15 @@ const features = [
     subtitle: "Support",
   },
   {
-    icon: Globe2,
+    icon: Globe,
     title: "Global Hubs in",
     subtitle: "UK, UAE & Canada",
   },
 ];
 
-const solutions = [
-  {
-    title: "Documents",
-    subtitle: "& Parcels",
-    image: "/international/documents-parcels.png",
-    description:
-      "Send important documents and parcels securely to destinations around the world with reliable international delivery.",
-  },
-  {
-    title: "Freight",
-    subtitle: "Solutions",
-    image: "/international/freight-solutions.png",
-    description:
-      "Reliable international freight services for businesses, including transportation of large and heavy shipments.",
-  },
-  {
-    title: "US Passport",
-    subtitle: "Renewal",
-    image: "/international/passport-renewal.png",
-    description:
-      "Get assistance with the US passport renewal process through convenient document handling services.",
-  },
-  {
-    title: "Student Plus",
-    subtitle: "",
-    image: "/international/student-plus.png",
-    description:
-      "Convenient international document and parcel delivery support for students studying abroad.",
-  },
-  {
-    title: "Regional",
-    subtitle: "Trade / TIR",
-    image: "/international/regional-trade.png",
-    description:
-      "Regional trade and transportation solutions designed to support cross-border cargo movement.",
-  },
-  {
-    title: "Customer",
-    subtitle: "Brokerage",
-    image: "/international/customer-brokerage.png",
-    description:
-      "Customs brokerage support to help manage shipment documentation and international clearance.",
-  },
-];
-
 const stats = [
   {
-    icon: Globe2,
+    icon: Globe,
     number: "220+",
     label: "Countries",
   },
@@ -112,8 +59,8 @@ export function InternationalExpressContent() {
         <div className="absolute inset-0">
           <img
             src="/internationalexpress/hero-background.jpg"
-            alt=""
-            className="object-cover object-center"
+            alt="banner"
+            className="w-full h-full object-fil"
           />
         </div>
 
@@ -136,13 +83,10 @@ export function InternationalExpressContent() {
                 <span className="block text-5xl font-extrabold sm:text-6xl">Countries</span>
               </h1>
 
-              <Link
-                to="/contact"
-                className="mt-7 inline-flex items-center gap-3 rounded-full bg-[#ed1018] px-7 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-red-700"
-              >
+              <Button className="mt-7 inline-flex items-center gap-3 rounded-full bg-[#ed1018] px-7 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-red-700">
                 Get a Quote
                 <ArrowRight size={18} />
-              </Link>
+              </Button>
             </div>
           </div>
 
@@ -171,56 +115,6 @@ export function InternationalExpressContent() {
         </div>
       </section>
 
-      {/* INTERNATIONAL SOLUTIONS */}
-      {/* <section className="mx-auto max-w-[1440px] px-5 py-10 lg:px-9">
-        <div className="mb-6 flex items-center gap-4">
-          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
-            Our International Solutions
-          </h2>
-          <span className="h-[3px] w-9 rounded-full bg-red-600" />
-        </div>
-
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
-          {solutions.map((item, index) => (
-            <Link
-              to="/contact"
-              key={item.title}
-              className={`group relative min-h-[145px] overflow-hidden rounded-2xl bg-[#edf0f5] sm:min-h-[165px] ${
-                index === 0
-                  ? "col-span-2 row-span-2 min-h-[300px] sm:col-span-1 sm:min-h-[340px] md:col-span-1"
-                  : index === 1 || index === 2
-                    ? "col-span-1 sm:col-span-1 md:col-span-1"
-                    : ""
-              }`}
-            >
-              <img
-                src={item.image}
-                alt={`${item.title} ${item.subtitle}`}
-
-                className="object-cover transition duration-500 group-hover:scale-105"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
-
-              <div className="absolute right-3 top-4 z-10 max-w-[55%] text-right sm:right-5 sm:top-5">
-                <h3 className="text-base font-extrabold leading-tight sm:text-xl">
-                  {item.title}
-                  {item.subtitle && (
-                    <>
-                      <br />
-                      {item.subtitle}
-                    </>
-                  )}
-                </h3>
-              </div>
-
-              <span className="absolute bottom-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-lg transition group-hover:bg-red-600 group-hover:text-white">
-                <ArrowRight size={20} className="text-red-600 group-hover:text-white" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section> */}
       <InternationalExpressSolutions />
 
       {/* RED CTA BANNER */}
@@ -241,13 +135,10 @@ export function InternationalExpressContent() {
             </p>
           </div>
 
-          <Link
-            to="/contact"
-            className="relative z-10 ml-[200px] inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-bold text-red-600 transition hover:bg-gray-100 sm:px-7 sm:text-sm"
-          >
+          <Button className="relative z-10 ml-[200px] inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-bold text-red-600 transition hover:bg-gray-100 sm:px-7 sm:text-sm">
             Get a Quote
             <ArrowRight size={17} />
-          </Link>
+          </Button>
         </div>
       </section>
 

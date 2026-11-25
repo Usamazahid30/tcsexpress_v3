@@ -7,8 +7,6 @@ export function InternationalExpressPage() {
   return (
     <main>
       <InternationalExpressContent />
-      {/* <InternationalExpressSolutions /> */}
-      {/* <InternationalServices />  */}
     </main>
   );
 }

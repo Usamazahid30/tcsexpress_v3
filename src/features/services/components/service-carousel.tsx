@@ -4,20 +4,20 @@ import { useTranslation } from "react-i18next";
 import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
-  { id: "air", image: "Services/air.jpg", href: "#services" },
-  { id: "logistics", image: "Services/logistics.jpg", href: "/logistics" },
+  { id: "domestic", image: "Services/domestic.jpg", href: "#services" },
+  { id: "ecom", image: "Services/ecom.jpg", href: "/ecom-solution" },
+  { id: "international", image: "Services/International.jpg", href: "/international" },
   {
     id: "sentiments",
     image: "Services/sentiments.jpg",
     href: "https://sentimentsexpress.com/",
     external: true,
   },
-  { id: "ecom", image: "Services/ecom.jpg", href: "/ecom-solution" },
-  { id: "international", image: "Services/International.jpg", href: "/international" },
-  { id: "studio", image: "Services/studio.jpg", href: "https://studiobytcs.pk/", external: true },
-  { id: "domestic", image: "Services/domestic.jpg", href: "#services" },
-  { id: "student", image: "Services/student.jpg", href: "#services" },
   { id: "travel", image: "Services/travel.jpg", href: "#services" },
+  { id: "air", image: "Services/air.jpg", href: "#services" },
+  { id: "logistics", image: "Services/logistics.jpg", href: "/logistics" },
+  { id: "studio", image: "Services/studio.jpg", href: "https://studiobytcs.pk/", external: true },
+  { id: "student", image: "Services/student.jpg", href: "#services" },
 ];
 
 export function ServiceCarousel() {
@@ -164,6 +164,8 @@ export function ServiceCarousel() {
             const isActive = offset === 0;
             const isHovered = hoveredIndex === i && !isDragging;
             const isFocused = isActive || isHovered;
+            // const isHovered = hoveredIndex === i && !isDragging;
+            // const isFocused = isActive;
             const absOffset = Math.abs(offset);
 
             const baseGap = 60;
@@ -190,6 +192,7 @@ export function ServiceCarousel() {
             const rotateY = isFocused ? 0 : offset < 0 ? (isRtl ? -16 : 16) : isRtl ? 16 : -16;
             const scale = isFocused ? 1 : 0.8;
             const zIndex = isHovered && !isActive ? 60 : 50 - absOffset * 10;
+            // const zIndex = isActive ? 50 : 50 - absOffset * 10;
 
             return (
               <div
@@ -233,22 +236,6 @@ export function ServiceCarousel() {
                 </div>
 
                 <div className="service-card__bottom">
-                  {/* <a
-                    href={service.href}
-                    target={service.external ? "_blank" : undefined}
-                    rel={service.external ? "noopener noreferrer" : undefined}
-                    aria-label={`${t("common:actions.explore")} ${service.title}`}
-                    className={`service-card__arrow ${
-                      isFocused ? "service-card__arrow--active" : "service-card__arrow--inactive"
-                    }`}
-                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                      if (hasMoved.current || !isActive) {
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <ArrowRight className="h-4 w-4 rtl-flip" />
-                  </a> */}
                   <div
                     aria-hidden="true"
                     className={`service-card__arrow ${
