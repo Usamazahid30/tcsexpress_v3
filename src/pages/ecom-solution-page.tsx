@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { EcomHero, EcomIntro, EcomServices } from "@/features/ecom-solution";
+import { EcomHero } from "@/features/ecom-solution";
 
 export function EcomSolutionPage() {
   // Scroll to top on mount
@@ -10,8 +10,6 @@ export function EcomSolutionPage() {
   return (
     <main>
       <EcomHero />
-      <EcomIntro />
-      <EcomServices />
     </main>
   );
 }

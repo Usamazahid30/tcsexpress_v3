@@ -17,8 +17,13 @@ export function SiteHeader() {
   const isCareerPage = location.pathname === "/career" || location.pathname === "/career/";
   const isEcomPage = location.pathname === "/ecom" || location.pathname === "/ecom/";
   const isInterPage = location.pathname === "/international";
+  const isEcomSolution = location.pathname === "/ecom-solution";
+
   const isTransparent =
-    (isHomePage || isCareerPage || isEcomPage || isInterPage) && !scrolled && !open;
+    (isHomePage || isCareerPage || isEcomPage || isInterPage || isEcomSolution) &&
+    !scrolled &&
+    !open;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
