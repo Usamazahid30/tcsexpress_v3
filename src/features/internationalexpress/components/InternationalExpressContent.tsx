@@ -53,19 +53,23 @@ export function InternationalExpressContent() {
   return (
     <main className="w-full overflow-hidden bg-white text-[#101018]">
       {/* HERO SECTION */}
-      <section className="relative min-h-[560px] overflow-hidden ">
+      <section className="relative w-full min-h-[560px] overflow-hidden bg-[#dbeafa] md:min-h-[620px] lg:min-h-[680px] xl:min-h-[740px]">
         {/* Hero background image */}
-
         <div className="absolute inset-0">
           <img
             src="/internationalexpress/hero-background.jpg"
-            alt="banner"
-            className="w-full h-full object-fil"
+            alt="TCS International Express banner"
+            className="h-full w-full object-cover object-[62%_45%] md:object-[center_45%]"
+            loading="eager"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/75 via-white/35 to-transparent md:hidden"
           />
         </div>
 
-        <div className="container relative z-10 mx-auto px-5 pb-8 pt-16 lg:px-10">
-          <div className="grid min-h-[390px] items-center gap-6 md:grid-cols-2">
+        <div className="container relative z-10 mx-auto flex min-h-[560px] flex-col justify-between px-5 pb-8 pt-24 sm:pt-28 md:min-h-[620px] lg:min-h-[680px] lg:px-10 xl:min-h-[740px]">
+          <div className="grid flex-1 items-center gap-6 py-4 md:grid-cols-2">
             {/* Hero Text */}
             <div className="relative z-20 max-w-lg">
               <div className="mb-5 flex items-center gap-4">

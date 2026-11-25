@@ -41,14 +41,14 @@ export function EcomHero({ onWatchVideo }: EcomHeroProps) {
       />
 
       {/* Contrast Gradient for Left Typography & Bottom Strip */}
-      <div
+      {/* <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#041531]/90 via-[#041531]/55 to-transparent lg:via-[#041531]/30"
         aria-hidden="true"
       />
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#041531]/80 via-[#041531]/30 to-transparent"
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Main Hero Copy */}
       <div className="container-page relative z-10 my-auto py-8 sm:py-12">
@@ -61,16 +61,16 @@ export function EcomHero({ onWatchVideo }: EcomHeroProps) {
           <h1 className="text-4xl font-extrabold uppercase leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
             <span className="block">Power Your</span>
             <span className="block">Business With</span>
-            <span className="mt-1 block text-[#ED1C24] drop-shadow-[0_2px_12px_rgba(212,5,17,0.35)]">
+            <span className="mt-1 block text-[#ED1C24] drop-shadow-[0_2px_12px_rgba(212,5,17,0.35)] text-7xl">
               TCS E-Com
             </span>
-            <span className="block text-[#ED1C24] drop-shadow-[0_2px_12px_rgba(212,5,17,0.35)]">
+            <span className="block text-[#ED1C24] drop-shadow-[0_2px_12px_rgba(212,5,17,0.35)] text-7xl">
               Solutions
             </span>
           </h1>
 
           {/* Signature Red Brush Swoosh */}
-          <svg
+          {/* <svg
             viewBox="0 0 280 22"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export function EcomHero({ onWatchVideo }: EcomHeroProps) {
               d="M4 17.5C68 5.5 178 2.5 274 14.5C277 14.9 276.5 18.8 273 18.5C180 10.5 72 11.5 6 19.5C3.5 19.8 2 17.9 4 17.5Z"
               fill="#ED1C24"
             />
-          </svg>
+          </svg> */}
 
           <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
             <a
@@ -141,7 +141,7 @@ export function EcomHero({ onWatchVideo }: EcomHeroProps) {
       </div>
 
       {/* Bottom Brand Accent Line */}
-      <div className="absolute inset-x-0 bottom-0 h-1 bg-[#D40511]" />
+      {/* <div className="absolute inset-x-0 bottom-0 h-1 bg-[#D40511]" /> */}
     </section>
   );
 }

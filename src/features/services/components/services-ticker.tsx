@@ -98,9 +98,10 @@ function TickerRow({ items, direction = -1, duration = 35 }: TickerRowProps) {
 
 export function ServicesTicker() {
   const services = [
+    { id: "corporate", image: "Services/corporate.jpg", title: "TCS Corporate" },
     { id: "domestic", image: "Services/domestic.jpg", title: "TCS Domestic" },
     { id: "international", image: "Services/International.jpg", title: "TCS International" },
-    { id: "air", image: "Services/air.jpg", title: "TCS Air" },
+    { id: "air", image: "Services/air.png", title: "TCS Air" },
     { id: "logistics", image: "Services/logistics.jpg", title: "TCS Logistics" },
     { id: "ecom", image: "Services/ecom.jpg", title: "TCS Ecommerce" },
     { id: "sentiments", image: "Services/sentiments.jpg", title: "TCS Sentiments" },

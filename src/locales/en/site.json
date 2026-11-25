@@ -21,8 +21,7 @@
   "hero": {
     "title_part1": "Service that ",
     "title_highlight": "moves",
-    "title_part2": " Pakistan forward",
-    "subtitle": "Explore the wide range of services offered by TCS"
+    "title_part2": " Pakistan forward"
   },
   "services": {
     "title": "Our Services",
@@ -32,9 +31,10 @@
     "ecom": "E-Com Solutions",
     "international": "International Express",
     "studio": "Studio",
-    "domestic": "Domestic Express",
+    "domestic": "Retail",
     "student": "Student Plus",
-    "travel": "Travel & Tours"
+    "travel": "Travel & Tours",
+    "corporate": "Corporate"
   },
   "footer": {
     "description": "Pakistan's largest courier and logistics network, moving people and businesses forward since 1983.",

@@ -40,8 +40,7 @@ export function Hero() {
     <section
       id="top"
       aria-label="TCS Home Hero"
-      className="relative min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] xl:min-h-[820px] w-full overflow-hidden bg-[#0A0D14]"
-      // className="relative min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] w-full overflow-hidden bg-[#0A0D14]"
+      className="relative min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] xl:min-h-[820px] w-full overflow-hidden bg-background dark:bg-[#0A0D14]"
     >
       {/* Background Images for Light and Dark Modes */}
       <img
@@ -57,30 +56,27 @@ export function Hero() {
         loading="eager"
       />
 
-      {/* Layered Gradient Overlays for High Contrast & Legibility */}
-      {/* Top Gradient Overlay (for header and controls contrast) */}
+      {/* Layered Gradient Overlays (Dark Mode Only) */}
+      {/* Top Gradient Overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-black/80 via-black/45 to-transparent dark:from-black/90 dark:via-black/50"
+        className="pointer-events-none absolute inset-x-0 top-0 hidden h-72 bg-gradient-to-b from-black/90 via-black/50 to-transparent dark:block"
       />
 
-      {/* Left Gradient Overlay (for headline typography contrast) */}
+      {/* Left Gradient Overlay */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent md:w-3/5"
+        className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-black/75 via-black/40 to-transparent md:w-3/5 dark:block"
       />
 
-      {/* Bottom Gradient Fade (smooth transition to page body) */}
+      {/* Bottom Gradient Fade */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-16 bg-gradient-to-t from-background to-transparent dark:block"
       />
 
       {/* Foreground Content */}
-      <div
-        className="container-page relative z-10 flex min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] xl:min-h-[820px] flex-col pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 lg:pb-28"
-        // className="container-page relative z-10 flex min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex-col pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20"
-      >
+      <div className="container-page relative z-10 flex min-h-[620px] sm:min-h-[700px] lg:min-h-[780px] xl:min-h-[820px] flex-col pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 lg:pb-28">
         {/* TOP ROW: Tracking Bar & Quick Action Shortcuts */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           {/* Tracking Search Input Box */}
@@ -159,11 +155,15 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] drop-shadow-md">
-              {t("site:hero.title_part1", "Service that ")}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] ">
+              <span className="[text-shadow:0px_4px_6px_rgba(0,0,0,0.5)]">
+                {t("site:hero.title_part1", "Service that ")}
+              </span>
               <span className="text-primary">{t("site:hero.title_highlight", "moves")}</span>
               <br />
-              {t("site:hero.title_part2", "Pakistan forward")}
+              <span className="[text-shadow:0px_4px_6px_rgba(0,0,0,0.5)]">
+                {t("site:hero.title_part2", "Pakistan forward")}
+              </span>
             </h1>
           </motion.div>
 
@@ -172,9 +172,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="mt-4 text-base sm:text-lg text-white/85 drop-shadow-sm max-w-lg">
-              {t("site:hero.subtitle", "Explore the wide range of services offered by TCS")}
-            </p>
+            {/* <p className="mt-4 text-base sm:text-lg text-white/85 drop-shadow-sm max-w-lg">
+              {t("site:hero.subtitle")}
+            </p> */}
           </motion.div>
         </div>
       </div>

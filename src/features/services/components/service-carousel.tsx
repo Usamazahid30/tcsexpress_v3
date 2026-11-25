@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ServiceItem } from "@/types";
 
 const rawServices: ServiceItem[] = [
+  { id: "corporate", image: "Services/corporate.jpg", href: "#services" },
   { id: "domestic", image: "Services/domestic.jpg", href: "#services" },
   { id: "ecom", image: "Services/ecom.jpg", href: "/ecom-solution" },
   { id: "international", image: "Services/International.jpg", href: "/international" },
@@ -14,12 +15,11 @@ const rawServices: ServiceItem[] = [
     external: true,
   },
   { id: "travel", image: "Services/travel.jpg", href: "#services" },
-  { id: "air", image: "Services/air.jpg", href: "#services" },
+  { id: "air", image: "Services/air.png", href: "#services" },
   { id: "logistics", image: "Services/logistics.jpg", href: "/logistics" },
   { id: "studio", image: "Services/studio.jpg", href: "https://studiobytcs.pk/", external: true },
   { id: "student", image: "Services/student.jpg", href: "#services" },
 ];
-
 export function ServiceCarousel() {
   const { t, i18n } = useTranslation(["site", "common"]);
   const isRtl = i18n.language === "ur";

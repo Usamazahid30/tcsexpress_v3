@@ -6,6 +6,14 @@ import { Reveal } from "@/components/common";
 
 const services = [
   {
+    id: "corporate",
+    image: "Services/corporate.jpg",
+    title: "TCS Corporate",
+    summary:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
+    href: "#services",
+  },
+  {
     id: "domestic",
     image: "Services/domestic.jpg",
     title: "TCS Domestic",
@@ -23,7 +31,7 @@ const services = [
   },
   {
     id: "air",
-    image: "Services/air.jpg",
+    image: "Services/air.png",
     title: "TCS Air",
     summary:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero cumque architecto facilis alias et. Nulla adipisci eaque voluptas minus iure id error repudiandae sapiente asperiores?",
