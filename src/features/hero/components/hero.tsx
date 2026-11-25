@@ -21,7 +21,7 @@ export function Hero() {
     { icon: Truck, label: t("site:track_bar.action_pickup", "Schedule a Pickup") },
     { icon: Calculator, label: t("site:track_bar.action_rate", "Rate Calculator") },
     { icon: MapPin, label: t("site:track_bar.action_locator", "TCS Locator") },
-    { icon: User, label: t("site:track_bar.action_account", "Open an Account") },
+    { icon: User, label: t("site:track_bar.action_account", "Open an Account"), route: "/ecom" },
   ];
 
   useEffect(() => {
@@ -132,11 +132,16 @@ export function Hero() {
             {actions.map((action, i) => (
               <motion.button
                 key={action.label}
+                onClick={() => {
+                  if (action.route) {
+                    window.location.href = action.route;
+                  }
+                }}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.05 * i }}
                 whileHover={{ y: -3, scale: 1.02 }}
-                className="group flex flex-col items-center justify-center gap-1.5 h-20 sm:h-22 min-w-20 sm:min-w-24 rounded-2xl border border-white/15 bg-black/35 hover:bg-black/50 dark:bg-white/10 dark:hover:bg-white/15 px-2.5 py-2 text-center shadow-lg backdrop-blur-md transition-all hover:border-white/30"
+                className="group flex flex-col items-center justify-center gap-1.5 h-20 sm:h-22 min-w-20 sm:min-w-24 rounded-2xl border border-white/15 bg-black/35 hover:bg-black/50 dark:bg-white/10 dark:hover:bg-white/15 px-2.5 py-2 text-center shadow-lg backdrop-blur-md transition-all hover:border-white/30 cursor-pointer"
               >
                 <action.icon className="h-5 w-5 text-white/90 transition-transform duration-300 group-hover:scale-110 drop-shadow-sm" />
                 <span className="text-[11px] sm:text-[11.5px] font-medium leading-tight text-white/90 group-hover:text-white">
